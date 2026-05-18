@@ -119,7 +119,7 @@ function Hero() {
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease }}
-          className="relative z-10 px-6 md:px-12 pt-8 md:pt-10 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-cream/60"
+          className="relative z-10 mx-auto w-full max-w-[1500px] px-6 md:px-12 lg:px-16 pt-8 md:pt-10 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-cream/60"
         >
           <span>Harare · Zimbabwe</span>
           <span className="hidden sm:inline">Est. 2024 · Health · Wellness · Longevity</span>
@@ -127,7 +127,7 @@ function Hero() {
         </motion.div>
 
         {/* Main copy */}
-        <div className="relative z-10 flex-1 grid lg:grid-cols-12 gap-10 px-6 md:px-12 pt-16 md:pt-24 pb-12">
+        <div className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 grid lg:grid-cols-12 gap-10 px-6 md:px-12 lg:px-16 pt-16 md:pt-24 pb-12">
           <motion.div
             className="lg:col-span-8"
             initial="hidden"
@@ -263,7 +263,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.9, ease }}
-          className="relative z-10 border-t border-cream/10 px-6 md:px-12 py-6 flex flex-wrap items-center justify-between gap-6 text-cream/70"
+          className="relative z-10 mx-auto w-full max-w-[1500px] border-t border-cream/10 px-6 md:px-12 lg:px-16 py-6 flex flex-wrap items-center justify-between gap-6 text-cream/70"
         >
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em]">
             <span className="inline-block h-px w-8 bg-cream/30" />
