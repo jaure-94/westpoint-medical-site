@@ -17,6 +17,7 @@ import { motion, useScroll, useTransform, type Variants } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 import exteriorNight from "@/assets/clinic/exterior-night.jpg";
+import exteriorDay from "@/assets/clinic/exterior-day.jpg";
 import exteriorWide from "@/assets/clinic/exterior-wide.jpg";
 import exteriorSign from "@/assets/clinic/exterior-sign.jpg";
 import wall from "@/assets/clinic/health-wellness-wall.jpg";
@@ -90,16 +91,16 @@ function Hero() {
   }, []);
 
   return (
-    <section className="px-3 pt-3">
+    <section className="relative w-full">
       <div
         ref={ref}
-        className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-ink text-cream min-h-[92vh] md:min-h-[88vh] flex flex-col"
+        className="relative w-full overflow-hidden bg-ink text-cream min-h-[100svh] flex flex-col"
       >
         {/* Parallax background image */}
         <motion.div style={{ y, scale }} className="absolute inset-0 -z-0">
           <img
-            src={exteriorNight}
-            alt="WestPoint Medical at night"
+            src={exteriorDay}
+            alt="WestPoint Medical clinic exterior"
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -107,9 +108,9 @@ function Hero() {
         {/* Gradient overlays */}
         <motion.div
           style={{ opacity: overlayOpacity }}
-          className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/55 to-ink"
+          className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/45 to-ink/90"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/30 to-transparent" />
         <div className="pointer-events-none absolute inset-0 bg-grain opacity-[0.06]" />
         <div className="pointer-events-none absolute -top-40 -right-32 h-[40rem] w-[40rem] rounded-full bg-primary/20 blur-3xl" />
 
