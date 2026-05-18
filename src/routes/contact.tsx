@@ -35,6 +35,9 @@ function Contact() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+        </div>
+
+
 
         <div className="relative mx-auto max-w-[1500px] px-6 pt-32 md:pt-40 pb-20 md:pb-28 text-cream">
           <motion.div
