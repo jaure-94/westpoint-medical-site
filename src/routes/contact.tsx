@@ -26,7 +26,8 @@ function Contact() {
   return (
     <Layout>
       {/* HERO */}
-      <section className="relative w-full min-h-[78svh] overflow-hidden">
+      <section className="relative w-full min-h-[78svh]">
+        <div className="absolute inset-0 overflow-hidden">
         <img
           src={exterior}
           alt="WestPoint Medical exterior"
@@ -34,6 +35,9 @@ function Contact() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+        </div>
+
+
 
         <div className="relative mx-auto max-w-[1500px] px-6 pt-32 md:pt-40 pb-20 md:pb-28 text-cream">
           <motion.div
@@ -92,7 +96,7 @@ function Contact() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 mx-auto max-w-[1500px] px-6 -mb-16 md:-mb-20"
+          className="relative z-30 mx-auto max-w-[1500px] px-6 -mb-24 md:-mb-28"
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-3xl overflow-hidden border border-border bg-border shadow-soft">
             {[
