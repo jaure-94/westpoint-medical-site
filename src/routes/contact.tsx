@@ -39,7 +39,7 @@ function Contact() {
 
 
 
-        <div className="relative mx-auto max-w-[1500px] px-6 pt-32 md:pt-40 pb-20 md:pb-28 text-cream">
+        <div className="relative mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16 pt-32 md:pt-40 pb-20 md:pb-28 text-cream">
           <motion.div
             initial="hidden"
             animate="show"
@@ -96,7 +96,7 @@ function Contact() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-30 mx-auto max-w-[1500px] px-6 -mb-24 md:-mb-28"
+          className="relative z-30 mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16 -mb-24 md:-mb-28"
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-3xl overflow-hidden border border-border bg-border shadow-soft">
             {[
@@ -125,7 +125,7 @@ function Contact() {
       </section>
 
       {/* MAP + FORM */}
-      <section className="mx-auto max-w-[1500px] px-6 pt-32 md:pt-40 pb-24 grid lg:grid-cols-12 gap-10">
+      <section className="mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16 pt-32 md:pt-40 pb-24 grid lg:grid-cols-12 gap-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
