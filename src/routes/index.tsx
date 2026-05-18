@@ -20,56 +20,60 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <Layout>
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pt-16 pb-24 md:pt-24 md:pb-32 grid lg:grid-cols-12 gap-12 items-end">
+      {/* HERO — dark editorial slab inspired by the reference */}
+      <section className="relative bg-ink text-cream overflow-hidden">
+        {/* soft texture */}
+        <div className="absolute inset-0 opacity-[0.06] bg-grain pointer-events-none" />
+        <div className="absolute -top-40 -right-40 h-[36rem] w-[36rem] rounded-full bg-primary/30 blur-3xl pointer-events-none" />
+
+        <div className="relative mx-auto max-w-7xl px-6 pt-12 pb-20 md:pt-16 md:pb-28 grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-4 py-1.5 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              Now open 24 hours
+            <div className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 backdrop-blur px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-cream/70">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary-glow animate-pulse" />
+              Now open · 24 hours
             </div>
-            <h1 className="mt-6 font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95]">
-              A quieter kind of <span className="text-gradient-green italic">care.</span>
+            <h1 className="mt-7 font-display text-5xl md:text-7xl lg:text-[5.25rem] leading-[0.98] text-cream">
+              A quieter kind <br className="hidden md:block" />of <span className="italic text-primary-glow">care.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+            <p className="mt-7 max-w-xl text-base md:text-lg text-cream/70">
               WestPoint Medical brings general practice, dental, aesthetics and a 24-hour pharmacy together inside one calm, modern facility — built around how it feels to be looked after well.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]">
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-primary-glow px-7 py-3.5 text-sm font-medium text-ink shadow-glow transition-transform hover:scale-[1.02]">
                 Book a visit <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
-              <Link to="/services" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-7 py-3.5 text-sm font-medium hover:bg-muted">
+              <Link to="/services" className="inline-flex items-center gap-2 rounded-full border border-cream/20 px-7 py-3.5 text-sm font-medium text-cream hover:bg-cream/5">
                 Explore services
               </Link>
             </div>
 
-            <dl className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
+            <dl className="mt-14 grid grid-cols-3 gap-8 max-w-lg border-t border-cream/10 pt-8">
               {[
                 { k: "24/7", v: "Emergency care" },
-                { k: "4", v: "Specialties" },
-                { k: "1", v: "Roof" },
+                { k: "4+", v: "Specialties" },
+                { k: "1", v: "Modern roof" },
               ].map((s) => (
-                <div key={s.k}>
-                  <dt className="font-display text-3xl text-foreground">{s.k}</dt>
-                  <dd className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">{s.v}</dd>
+                <div key={s.v}>
+                  <dt className="font-display text-3xl text-cream">{s.k}</dt>
+                  <dd className="mt-1 text-[10px] uppercase tracking-[0.22em] text-cream/50">{s.v}</dd>
                 </div>
               ))}
             </dl>
           </div>
 
           <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-soft">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-soft ring-1 ring-cream/10">
               <img src={exteriorNight} alt="WestPoint Medical exterior, illuminated at night" className="h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between text-cream">
                 <div>
-                  <div className="text-xs uppercase tracking-[0.22em] text-cream/70">WestPoint Centre</div>
+                  <div className="text-[10px] uppercase tracking-[0.28em] text-cream/70">WestPoint Centre</div>
                   <div className="font-display text-2xl">Harare, Zimbabwe</div>
                 </div>
-                <div className="rounded-full bg-primary/90 px-3 py-1 text-xs font-medium">24h</div>
+                <div className="rounded-full bg-primary-glow px-3 py-1 text-xs font-medium text-ink">24h</div>
               </div>
             </div>
-            <div className="absolute -bottom-6 -left-6 hidden md:block aspect-square w-40 overflow-hidden rounded-2xl shadow-soft border-4 border-background">
+            <div className="absolute -bottom-8 -left-8 hidden md:block aspect-square w-44 overflow-hidden rounded-2xl shadow-soft ring-4 ring-ink">
               <img src={wall} alt="Health Wellness Longevity wall" className="h-full w-full object-cover" />
             </div>
           </div>
