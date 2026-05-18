@@ -7,9 +7,9 @@ export function Footer() {
     <footer className="border-t border-border bg-ink text-cream">
       <div className="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="[&_*]:!text-cream"><Logo /></div>
-          <p className="mt-4 max-w-sm text-sm text-cream/70">
-            Health. Wellness. Longevity. A modern medical and wellness facility designed around the people who walk through our doors.
+          <Logo variant="light" />
+          <p className="mt-6 max-w-sm text-sm text-cream/70">
+            A modern medical and wellness facility designed around the people who walk through our doors.
           </p>
           <div className="mt-6 flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary-glow">
             <span className="inline-block h-2 w-2 rounded-full bg-primary-glow animate-pulse" />
@@ -19,10 +19,10 @@ export function Footer() {
         <div>
           <h4 className="text-sm uppercase tracking-[0.2em] text-cream/50 mb-4">Visit</h4>
           <ul className="space-y-3 text-sm">
-            <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 text-primary-glow" /> WestPoint Centre, Harare, Zimbabwe</li>
-            <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 text-primary-glow" /> +263 780 969 577</li>
-            <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 text-primary-glow" /> care@westpointmedical.co</li>
-            <li className="flex gap-3"><Clock className="h-4 w-4 mt-0.5 text-primary-glow" /> 24 / 7 emergency care</li>
+            <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 text-primary-glow" /><span>WestPoint Centre, Harare, Zimbabwe</span></li>
+            <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 text-primary-glow" /><span>+263 780 969 577</span></li>
+            <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 text-primary-glow" /><span>care@westpointmedical.co</span></li>
+            <li className="flex gap-3"><Clock className="h-4 w-4 mt-0.5 text-primary-glow" /><span>24 / 7 emergency care</span></li>
           </ul>
         </div>
         <div>
