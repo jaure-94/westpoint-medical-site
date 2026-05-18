@@ -10,7 +10,6 @@ import {
   ShieldCheck,
   Phone,
   Calendar,
-  Star,
   CheckCircle2,
 } from "lucide-react";
 import { motion, useScroll, useTransform, type Variants } from "motion/react";
@@ -18,7 +17,6 @@ import { useEffect, useRef, useState } from "react";
 
 import exteriorDay from "@/assets/clinic/exterior-day.jpg";
 import exteriorWide from "@/assets/clinic/exterior-wide.jpg";
-import exteriorSign from "@/assets/clinic/exterior-sign.jpg";
 import wall from "@/assets/clinic/health-wellness-wall.jpg";
 import consultation from "@/assets/clinic/consultation.jpg";
 import dental from "@/assets/clinic/dental-2.jpg";
@@ -104,20 +102,20 @@ function Hero() {
           />
         </motion.div>
 
-        {/* Gradient overlays */}
+        {/* Gradient overlays — darker on the left, fading transparent to the right */}
         <motion.div
           style={{ opacity: overlayOpacity }}
-          className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/45 to-ink/90"
+          className="absolute inset-0 bg-gradient-to-b from-ink/65 via-ink/55 to-ink/95"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/55 to-ink/10" />
         <div className="pointer-events-none absolute inset-0 bg-grain opacity-[0.06]" />
-        <div className="pointer-events-none absolute -top-40 -right-32 h-[40rem] w-[40rem] rounded-full bg-primary/20 blur-3xl" />
+        <div className="pointer-events-none absolute -top-40 -right-32 h-[40rem] w-[40rem] rounded-full bg-primary/15 blur-3xl" />
 
         {/* Top brand row */}
         <motion.div
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease }}
+          transition={{ duration: 0.6, ease }}
           className="relative z-10 mx-auto w-full max-w-[1500px] px-6 md:px-12 lg:px-16 pt-8 md:pt-10 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-cream/60"
         >
           <span>Harare · Zimbabwe</span>
@@ -126,9 +124,9 @@ function Hero() {
         </motion.div>
 
         {/* Main copy */}
-        <div className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 grid lg:grid-cols-12 gap-10 px-6 md:px-12 lg:px-16 pt-16 md:pt-24 pb-12">
+        <div className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 px-6 md:px-12 lg:px-16 pt-16 md:pt-24 pb-12">
           <motion.div
-            className="lg:col-span-8"
+            className="max-w-4xl"
             initial="hidden"
             animate="show"
             variants={stagger}
@@ -172,7 +170,7 @@ function Hero() {
 
             <motion.p
               variants={fadeUp}
-              className="mt-8 max-w-xl text-base md:text-lg leading-relaxed text-cream/75"
+              className="mt-8 max-w-xl text-base md:text-lg leading-relaxed text-cream/80"
             >
               Personalised medical and wellness care designed to restore your strength,
               vitality and confidence — under one calm, considered roof, around the clock.
@@ -197,71 +195,13 @@ function Hero() {
               </a>
             </motion.div>
           </motion.div>
-
-          {/* Floating image stack */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 1, ease }}
-            className="lg:col-span-4 hidden lg:flex items-end justify-end"
-          >
-            <div className="relative w-full max-w-[22rem]">
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                className="relative overflow-hidden rounded-[1.5rem] shadow-soft"
-              >
-                <img
-                  src={wall}
-                  alt="WestPoint Health Wellness Longevity wall"
-                  className="h-72 w-full object-cover"
-                />
-              </motion.div>
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-10 -left-10 w-44 overflow-hidden rounded-2xl ring-4 ring-ink shadow-soft"
-              >
-                <img src={consultation} alt="Consultation" className="h-32 w-full object-cover" />
-              </motion.div>
-
-              {/* Trust chip */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.1, duration: 0.6, ease }}
-                className="absolute -top-6 -left-8 flex items-center gap-3 rounded-2xl bg-cream/95 backdrop-blur px-4 py-2.5 text-ink shadow-soft"
-              >
-                <div className="flex -space-x-2">
-                  {[aesthetics, dental, exteriorSign].map((src, i) => (
-                    <img
-                      key={i}
-                      src={src}
-                      alt=""
-                      className="h-7 w-7 rounded-full object-cover ring-2 ring-cream"
-                    />
-                  ))}
-                </div>
-                <div className="leading-tight">
-                  <div className="flex items-center gap-0.5 text-primary">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="h-3 w-3 fill-current" />
-                    ))}
-                  </div>
-                  <div className="text-[10px] uppercase tracking-[0.16em] text-ink/60">
-                    1,000+ patients
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
         </div>
 
         {/* Bottom meta strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.9, ease }}
+          transition={{ delay: 0.5, duration: 0.7, ease }}
           className="relative z-10 mx-auto w-full max-w-[1500px] border-t border-cream/10 px-6 md:px-12 lg:px-16 py-6 flex flex-wrap items-center justify-between gap-6 text-cream/70"
         >
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em]">

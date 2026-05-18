@@ -27,6 +27,16 @@ function Contact() {
 
       <section className="mx-auto max-w-7xl px-6 pb-24 grid lg:grid-cols-12 gap-10">
         <div className="lg:col-span-5 space-y-6">
+          <div className="relative overflow-hidden rounded-3xl border border-border">
+            <iframe
+              title="WestPoint Medical location"
+              src="https://www.google.com/maps?q=-17.8045736,30.9724211&z=17&hl=en&output=embed"
+              className="aspect-[4/3] w-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
           <div className="relative overflow-hidden rounded-3xl">
             <img src={exterior} alt="WestPoint Medical exterior" className="aspect-[4/3] w-full object-cover" />
           </div>
