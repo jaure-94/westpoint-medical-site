@@ -92,7 +92,7 @@ function Contact() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 mx-auto max-w-[1500px] px-6 -mb-16 md:-mb-20"
+          className="relative z-30 mx-auto max-w-[1500px] px-6 -mb-24 md:-mb-28"
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-3xl overflow-hidden border border-border bg-border shadow-soft">
             {[
