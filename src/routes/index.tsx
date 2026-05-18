@@ -16,7 +16,6 @@ import {
 import { motion, useScroll, useTransform, type Variants } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-import exteriorNight from "@/assets/clinic/exterior-night.jpg";
 import exteriorDay from "@/assets/clinic/exterior-day.jpg";
 import exteriorWide from "@/assets/clinic/exterior-wide.jpg";
 import exteriorSign from "@/assets/clinic/exterior-sign.jpg";
