@@ -10,7 +10,6 @@ import {
   ShieldCheck,
   Phone,
   Calendar,
-  Star,
   CheckCircle2,
 } from "lucide-react";
 import { motion, useScroll, useTransform, type Variants } from "motion/react";
@@ -18,7 +17,6 @@ import { useEffect, useRef, useState } from "react";
 
 import exteriorDay from "@/assets/clinic/exterior-day.jpg";
 import exteriorWide from "@/assets/clinic/exterior-wide.jpg";
-import exteriorSign from "@/assets/clinic/exterior-sign.jpg";
 import wall from "@/assets/clinic/health-wellness-wall.jpg";
 import consultation from "@/assets/clinic/consultation.jpg";
 import dental from "@/assets/clinic/dental-2.jpg";
