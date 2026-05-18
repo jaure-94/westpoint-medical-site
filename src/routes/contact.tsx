@@ -26,7 +26,8 @@ function Contact() {
   return (
     <Layout>
       {/* HERO */}
-      <section className="relative w-full min-h-[78svh] overflow-hidden">
+      <section className="relative w-full min-h-[78svh]">
+        <div className="absolute inset-0 overflow-hidden">
         <img
           src={exterior}
           alt="WestPoint Medical exterior"
