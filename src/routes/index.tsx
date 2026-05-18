@@ -16,7 +16,7 @@ import {
 import { motion, useScroll, useTransform, type Variants } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-import exteriorNight from "@/assets/clinic/exterior-night.jpg";
+import exteriorDay from "@/assets/clinic/exterior-day.jpg";
 import exteriorWide from "@/assets/clinic/exterior-wide.jpg";
 import exteriorSign from "@/assets/clinic/exterior-sign.jpg";
 import wall from "@/assets/clinic/health-wellness-wall.jpg";
@@ -90,16 +90,16 @@ function Hero() {
   }, []);
 
   return (
-    <section className="px-3 pt-3">
+    <section className="relative w-full">
       <div
         ref={ref}
-        className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-ink text-cream min-h-[92vh] md:min-h-[88vh] flex flex-col"
+        className="relative w-full overflow-hidden bg-ink text-cream min-h-[100svh] flex flex-col"
       >
         {/* Parallax background image */}
         <motion.div style={{ y, scale }} className="absolute inset-0 -z-0">
           <img
-            src={exteriorNight}
-            alt="WestPoint Medical at night"
+            src={exteriorDay}
+            alt="WestPoint Medical clinic exterior"
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -107,9 +107,9 @@ function Hero() {
         {/* Gradient overlays */}
         <motion.div
           style={{ opacity: overlayOpacity }}
-          className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/55 to-ink"
+          className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/45 to-ink/90"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/30 to-transparent" />
         <div className="pointer-events-none absolute inset-0 bg-grain opacity-[0.06]" />
         <div className="pointer-events-none absolute -top-40 -right-32 h-[40rem] w-[40rem] rounded-full bg-primary/20 blur-3xl" />
 
@@ -118,7 +118,7 @@ function Hero() {
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease }}
-          className="relative z-10 px-6 md:px-12 pt-8 md:pt-10 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-cream/60"
+          className="relative z-10 mx-auto w-full max-w-[1500px] px-6 md:px-12 lg:px-16 pt-8 md:pt-10 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-cream/60"
         >
           <span>Harare · Zimbabwe</span>
           <span className="hidden sm:inline">Est. 2024 · Health · Wellness · Longevity</span>
@@ -126,7 +126,7 @@ function Hero() {
         </motion.div>
 
         {/* Main copy */}
-        <div className="relative z-10 flex-1 grid lg:grid-cols-12 gap-10 px-6 md:px-12 pt-16 md:pt-24 pb-12">
+        <div className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 grid lg:grid-cols-12 gap-10 px-6 md:px-12 lg:px-16 pt-16 md:pt-24 pb-12">
           <motion.div
             className="lg:col-span-8"
             initial="hidden"
@@ -262,7 +262,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.9, ease }}
-          className="relative z-10 border-t border-cream/10 px-6 md:px-12 py-6 flex flex-wrap items-center justify-between gap-6 text-cream/70"
+          className="relative z-10 mx-auto w-full max-w-[1500px] border-t border-cream/10 px-6 md:px-12 lg:px-16 py-6 flex flex-wrap items-center justify-between gap-6 text-cream/70"
         >
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em]">
             <span className="inline-block h-px w-8 bg-cream/30" />
