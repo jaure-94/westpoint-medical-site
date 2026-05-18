@@ -1,0 +1,57 @@
+import { Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { Menu, X, Phone } from "lucide-react";
+import { Logo } from "./Logo";
+
+const nav = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
+  { to: "/contact", label: "Contact" },
+] as const;
+
+export function Header() {
+  const [open, setOpen] = useState(false);
+  return (
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <Link to="/" className="flex items-center"><Logo /></Link>
+        <nav className="hidden md:flex items-center gap-1">
+          {nav.map((n) => (
+            <Link
+              key={n.to}
+              to={n.to}
+              className="px-4 py-2 text-sm text-foreground/70 transition-colors hover:text-foreground"
+              activeProps={{ className: "px-4 py-2 text-sm text-primary font-medium" }}
+              activeOptions={{ exact: true }}
+            >
+              {n.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="hidden md:flex items-center gap-3">
+          <a href="tel:+263780969577" className="flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]">
+            <Phone className="h-4 w-4" /> 24h Care
+          </a>
+        </div>
+        <button onClick={() => setOpen(!open)} className="md:hidden p-2" aria-label="Toggle menu">
+          {open ? <X /> : <Menu />}
+        </button>
+      </div>
+      {open && (
+        <div className="md:hidden border-t border-border bg-background">
+          <div className="flex flex-col p-4 gap-1">
+            {nav.map((n) => (
+              <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="px-4 py-3 rounded-lg hover:bg-muted">
+                {n.label}
+              </Link>
+            ))}
+            <a href="tel:+263780969577" className="mt-2 flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground">
+              <Phone className="h-4 w-4" /> Call 24h
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
