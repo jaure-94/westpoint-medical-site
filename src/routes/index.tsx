@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
-import { ArrowUpRight, Heart, Stethoscope, Sparkles, Pill, Clock, ShieldCheck } from "lucide-react";
-import exteriorNight from "@/assets/clinic/exterior-night.jpg";
+import { ArrowUpRight, Heart, Stethoscope, Sparkles, Pill, Clock, ShieldCheck, Phone, Calendar, Star } from "lucide-react";
+import { motion } from "motion/react";
+import consultation from "@/assets/clinic/consultation.jpg";
 import wall from "@/assets/clinic/health-wellness-wall.jpg";
 import consult from "@/assets/clinic/consultation.jpg";
 import dental from "@/assets/clinic/dental-2.jpg";
@@ -17,65 +18,143 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const ease = [0.22, 1, 0.36, 1] as const;
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.8, ease, delay: 0.08 * i } }),
+};
+
 function Home() {
   return (
     <Layout>
-      {/* HERO — dark editorial slab inspired by the reference */}
-      <section className="relative bg-ink text-cream overflow-hidden">
-        {/* soft texture */}
-        <div className="absolute inset-0 opacity-[0.06] bg-grain pointer-events-none" />
-        <div className="absolute -top-40 -right-40 h-[36rem] w-[36rem] rounded-full bg-primary/30 blur-3xl pointer-events-none" />
+      {/* HERO — rounded dark-green stage with overlapping form card, inspired by the reference */}
+      <section className="px-3 pt-3 pb-24 md:pb-32">
+        <div className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-ink text-cream">
+          {/* ambient layers */}
+          <div className="absolute inset-0 opacity-[0.05] bg-grain pointer-events-none" />
+          <div className="absolute -top-40 -right-32 h-[40rem] w-[40rem] rounded-full bg-primary/25 blur-3xl pointer-events-none" />
+          {/* faint oversized logo mark, like the reference footer */}
+          <svg viewBox="0 0 40 40" className="pointer-events-none absolute -right-20 top-1/3 h-[28rem] w-[28rem] opacity-[0.05]" aria-hidden>
+            <path d="M14 4h7v10h10v7H21v10h-7V21H4v-7h10z" fill="currentColor" className="text-primary-glow" />
+          </svg>
 
-        <div className="relative mx-auto max-w-7xl px-6 pt-12 pb-20 md:pt-16 md:pb-28 grid lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 backdrop-blur px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-cream/70">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary-glow animate-pulse" />
-              Now open · 24 hours
-            </div>
-            <h1 className="mt-7 font-display text-5xl md:text-7xl lg:text-[5.25rem] leading-[0.98] text-cream">
-              A quieter kind <br className="hidden md:block" />of <span className="italic text-primary-glow">care.</span>
-            </h1>
-            <p className="mt-7 max-w-xl text-base md:text-lg text-cream/70">
-              WestPoint Medical brings general practice, dental, aesthetics and a 24-hour pharmacy together inside one calm, modern facility — built around how it feels to be looked after well.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-primary-glow px-7 py-3.5 text-sm font-medium text-ink shadow-glow transition-transform hover:scale-[1.02]">
-                Book a visit <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
-              <Link to="/services" className="inline-flex items-center gap-2 rounded-full border border-cream/20 px-7 py-3.5 text-sm font-medium text-cream hover:bg-cream/5">
-                Explore services
-              </Link>
-            </div>
+          <div className="relative grid lg:grid-cols-12 gap-8 px-6 md:px-12 pt-14 md:pt-20 pb-10">
+            {/* LEFT — copy */}
+            <motion.div
+              className="lg:col-span-7 lg:pr-8"
+              initial="hidden"
+              animate="show"
+              variants={{ show: { transition: { staggerChildren: 0.08 } } }}
+            >
+              <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 backdrop-blur px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-cream/70">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-glow opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary-glow" />
+                </span>
+                Now open · 24 hours
+              </motion.div>
 
-            <dl className="mt-14 grid grid-cols-3 gap-8 max-w-lg border-t border-cream/10 pt-8">
+              <motion.h1 variants={fadeUp} className="mt-7 font-display font-semibold text-[2.75rem] sm:text-6xl lg:text-[5.25rem] leading-[1.02] tracking-tight">
+                Heal. Restore. <br className="hidden sm:block" />
+                <span className="text-primary-glow font-light italic">Thrive Again.</span>
+              </motion.h1>
+
+              <motion.p variants={fadeUp} className="mt-7 max-w-lg text-base md:text-[1.05rem] leading-relaxed text-cream/70">
+                Personalised medical and wellness care designed to restore your strength, vitality and confidence — under one calm, considered roof, around the clock.
+              </motion.p>
+
+              <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-5">
+                <a href="tel:+263780969577" className="group inline-flex items-center gap-3 text-cream">
+                  <span className="grid h-11 w-11 place-items-center rounded-full bg-primary-glow text-ink transition-transform group-hover:scale-110">
+                    <Phone className="h-4 w-4" />
+                  </span>
+                  <span>
+                    <span className="block text-[10px] uppercase tracking-[0.22em] text-cream/50">24h reception</span>
+                    <span className="block font-display text-xl">+263 780 969 577</span>
+                  </span>
+                </a>
+              </motion.div>
+            </motion.div>
+
+            {/* RIGHT — photo */}
+            <motion.div
+              className="lg:col-span-5 relative min-h-[24rem] lg:min-h-[34rem]"
+              initial={{ opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.1, ease }}
+            >
+              <div className="relative h-full overflow-hidden rounded-[1.5rem]">
+                <img src={consultation} alt="A WestPoint clinician with a patient" className="h-full w-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-ink/40 via-transparent to-transparent" />
+              </div>
+
+              {/* floating trust card */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9, duration: 0.7, ease }}
+                className="absolute -bottom-4 right-4 md:right-6 flex items-center gap-3 rounded-2xl bg-cream/95 backdrop-blur px-4 py-3 text-ink shadow-soft"
+              >
+                <div className="flex -space-x-2">
+                  {[aesthetics, dental, wall].map((src, i) => (
+                    <img key={i} src={src} alt="" className="h-8 w-8 rounded-full object-cover ring-2 ring-cream" />
+                  ))}
+                </div>
+                <div className="leading-tight">
+                  <div className="flex items-center gap-1 text-primary">
+                    {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-3 w-3 fill-current" />)}
+                  </div>
+                  <div className="text-xs text-ink/70">Trusted by 1,000+ patients</div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* BOTTOM — overlapping appointment card + meta strip */}
+          <div className="relative grid lg:grid-cols-12 gap-8 px-6 md:px-12 pb-12 md:pb-16">
+            <motion.form
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.9, ease }}
+              onSubmit={(e) => e.preventDefault()}
+              className="lg:col-span-7 lg:-mt-24 rounded-[1.5rem] bg-cream text-ink p-6 md:p-8 shadow-soft"
+            >
+              <div className="flex items-center justify-between">
+                <h3 className="font-display text-xl md:text-2xl">Book an appointment</h3>
+                <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.22em] text-ink/50">
+                  <Calendar className="h-3 w-3" /> Same-day slots
+                </span>
+              </div>
+              <div className="mt-5 grid sm:grid-cols-2 gap-4">
+                <Field label="Your name" placeholder="Jane Moyo" />
+                <Field label="Phone" placeholder="+263 ..." />
+                <Field label="Service" placeholder="General consult" />
+                <Field label="Preferred date" placeholder="dd / mm / yyyy" />
+              </div>
+              <button className="group mt-6 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-cream transition-transform hover:scale-[1.02]">
+                Request appointment
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </button>
+            </motion.form>
+
+            <motion.dl
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+              className="lg:col-span-5 grid grid-cols-3 gap-6 self-end border-t border-cream/10 pt-8"
+            >
               {[
                 { k: "24/7", v: "Emergency care" },
                 { k: "4+", v: "Specialties" },
-                { k: "1", v: "Modern roof" },
+                { k: "1k+", v: "Patients served" },
               ].map((s) => (
-                <div key={s.v}>
-                  <dt className="font-display text-3xl text-cream">{s.k}</dt>
+                <motion.div key={s.v} variants={fadeUp}>
+                  <dt className="font-display text-3xl md:text-4xl text-cream">{s.k}</dt>
                   <dd className="mt-1 text-[10px] uppercase tracking-[0.22em] text-cream/50">{s.v}</dd>
-                </div>
+                </motion.div>
               ))}
-            </dl>
-          </div>
-
-          <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-soft ring-1 ring-cream/10">
-              <img src={exteriorNight} alt="WestPoint Medical exterior, illuminated at night" className="h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between text-cream">
-                <div>
-                  <div className="text-[10px] uppercase tracking-[0.28em] text-cream/70">WestPoint Centre</div>
-                  <div className="font-display text-2xl">Harare, Zimbabwe</div>
-                </div>
-                <div className="rounded-full bg-primary-glow px-3 py-1 text-xs font-medium text-ink">24h</div>
-              </div>
-            </div>
-            <div className="absolute -bottom-8 -left-8 hidden md:block aspect-square w-44 overflow-hidden rounded-2xl shadow-soft ring-4 ring-ink">
-              <img src={wall} alt="Health Wellness Longevity wall" className="h-full w-full object-cover" />
-            </div>
+            </motion.dl>
           </div>
         </div>
       </section>
@@ -158,5 +237,17 @@ function Home() {
         </div>
       </section>
     </Layout>
+  );
+}
+
+function Field({ label, placeholder }: { label: string; placeholder: string }) {
+  return (
+    <label className="block">
+      <span className="text-[11px] uppercase tracking-[0.18em] text-ink/55">{label}</span>
+      <input
+        placeholder={placeholder}
+        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-background/60 px-4 py-3 text-sm text-ink placeholder:text-ink/30 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+      />
+    </label>
   );
 }
