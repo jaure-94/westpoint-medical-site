@@ -239,3 +239,15 @@ function Home() {
     </Layout>
   );
 }
+
+function Field({ label, placeholder }: { label: string; placeholder: string }) {
+  return (
+    <label className="block">
+      <span className="text-[11px] uppercase tracking-[0.18em] text-ink/55">{label}</span>
+      <input
+        placeholder={placeholder}
+        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-background/60 px-4 py-3 text-sm text-ink placeholder:text-ink/30 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+      />
+    </label>
+  );
+}
