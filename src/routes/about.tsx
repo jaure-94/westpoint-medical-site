@@ -3,7 +3,7 @@ import { Layout } from "@/components/site/Layout";
 import wall from "@/assets/clinic/health-wellness-wall.jpg";
 import exterior from "@/assets/clinic/exterior-wide.jpg";
 import consult from "@/assets/clinic/consultation.jpg";
-import aesthetics from "@/assets/clinic/aesthetics.jpg";
+import team from "@/assets/clinic/team.jpg";
 import { ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
@@ -77,7 +77,7 @@ function About() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">
-        <img src={aesthetics} alt="Aesthetics & wellness wing" className="w-full aspect-[21/9] object-cover rounded-3xl" />
+        <img src={team} alt="The WestPoint Medical team" className="w-full aspect-[21/9] object-cover rounded-3xl" />
       </section>
     </Layout>
   );
