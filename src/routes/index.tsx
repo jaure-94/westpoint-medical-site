@@ -35,6 +35,7 @@ export const Route = createFileRoute("/")({
           "A 24-hour modern medical and wellness clinic. General practice, dental, aesthetics & pharmacy under one calm, considered roof.",
       },
     ],
+    links: [{ rel: "preload", as: "image", href: exteriorDay, fetchPriority: "high" }],
   }),
   component: Home,
 });
@@ -113,22 +114,17 @@ function Hero() {
         <div className="pointer-events-none absolute -top-40 -right-32 h-[40rem] w-[40rem] rounded-full bg-primary/15 blur-3xl" />
 
         {/* Top brand row */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease }}
-          className="relative z-10 mx-auto w-full max-w-[1500px] px-6 md:px-12 lg:px-16 pt-8 md:pt-10 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-cream/60"
-        >
+        <div className="relative z-10 mx-auto flex w-full max-w-[1500px] items-center justify-between px-6 pt-8 text-[10px] uppercase tracking-[0.28em] text-cream/60 md:px-12 md:pt-10 lg:px-16">
           <span>Harare · Zimbabwe</span>
           <span className="hidden sm:inline">Est. 2024 · Health · Wellness · Longevity</span>
           <span>24 / 7</span>
-        </motion.div>
+        </div>
 
         {/* Main copy */}
         <div className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 px-6 md:px-12 lg:px-16 pt-16 md:pt-24 pb-12">
           <motion.div
             className="max-w-4xl"
-            initial="hidden"
+            initial={false}
             animate="show"
             variants={stagger}
           >
@@ -199,12 +195,7 @@ function Hero() {
         </div>
 
         {/* Bottom meta strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.7, ease }}
-          className="relative z-10 mx-auto w-full max-w-[1500px] border-t border-cream/10 px-6 md:px-12 lg:px-16 py-6 flex flex-wrap items-center justify-between gap-6 text-cream/70"
-        >
+        <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-wrap items-center justify-between gap-6 border-t border-cream/10 px-6 py-6 text-cream/70 md:px-12 lg:px-16">
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em]">
             <span className="inline-block h-px w-8 bg-cream/30" />
             Scroll to explore
@@ -221,7 +212,7 @@ function Hero() {
               </div>
             ))}
           </dl>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
