@@ -21,11 +21,12 @@ export function Header() {
             <Link
               key={n.to}
               to={n.to}
-              className="px-4 py-2 text-sm text-foreground/70 transition-colors hover:text-foreground"
-              activeProps={{ className: "px-4 py-2 text-sm text-primary font-medium" }}
+              className="group relative px-4 py-2 text-sm text-foreground/70 transition-colors duration-300 hover:text-foreground"
+              activeProps={{ className: "group relative px-4 py-2 text-sm text-primary font-medium" }}
               activeOptions={{ exact: true }}
             >
               {n.label}
+              <span className="pointer-events-none absolute left-4 right-4 -bottom-0.5 h-px origin-left scale-x-0 bg-primary transition-transform duration-300 ease-out group-hover:scale-x-100" />
             </Link>
           ))}
         </nav>
