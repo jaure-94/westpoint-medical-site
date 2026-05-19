@@ -160,7 +160,7 @@ function Hero() {
                         : { y: "-110%", opacity: 0 }
                     }
                     transition={{ duration: 0.7, ease }}
-                    className="absolute inset-0 text-primary-glow italic font-light"
+                    className="absolute inset-0 text-primary-glow font-display font-medium"
                   >
                     {w}
                   </motion.span>
@@ -401,10 +401,7 @@ function Story() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
           </div>
-          <div className="absolute -bottom-8 -right-4 md:right-6 w-44 md:w-56 overflow-hidden rounded-2xl ring-[6px] ring-background shadow-soft">
-            <img src={resuscitation} alt="Resuscitation room" className="h-40 md:h-48 w-full object-cover" />
-          </div>
-          <div className="absolute -top-6 -left-6 hidden md:flex items-center gap-2 rounded-full bg-ink text-cream px-4 py-2 text-[10px] uppercase tracking-[0.22em] shadow-soft">
+          <div className="absolute -top-6 left-6 md:-top-8 md:left-8 hidden md:flex items-center gap-2 rounded-full bg-ink text-cream px-4 py-2 text-[10px] uppercase tracking-[0.22em] shadow-soft">
             <span className="h-1.5 w-1.5 rounded-full bg-primary-glow" />
             Built for you
           </div>
