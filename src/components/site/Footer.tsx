@@ -1,53 +1,78 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export function Footer() {
+  const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-border bg-ink text-cream">
-      <div className="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-4">
-        <div className="md:col-span-2">
-          <Logo variant="light" />
-          <p className="mt-6 max-w-sm text-sm text-cream/70">
-            A modern medical and wellness facility designed around the people who walk through our doors.
-          </p>
-          <div className="mt-6 flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary-glow">
-            <span className="inline-block h-2 w-2 rounded-full bg-primary-glow animate-pulse" />
-            Open 24 hours
+    <footer className="relative mt-32 border-t border-border/60 bg-ink text-cream">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10 py-20">
+        <div className="grid gap-16 md:grid-cols-12">
+          <div className="md:col-span-6">
+            <p className="text-xs uppercase tracking-[0.25em] text-primary-glow/80">
+              Let&apos;s talk
+            </p>
+            <h2 className="mt-6 font-display text-4xl md:text-6xl tracking-tight text-balance">
+              Care that meets you.<br />
+              <span className="text-cream/60">Every hour of the day.</span>
+            </h2>
+            <Link
+              to="/contact"
+              className="mt-10 inline-flex items-center gap-3 rounded-full bg-cream text-ink px-6 py-3.5 text-sm font-medium hover:bg-primary-glow hover:text-ink transition-colors"
+            >
+              Book a visit
+              <span aria-hidden>→</span>
+            </Link>
+            <div className="mt-8 flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary-glow">
+              <span className="inline-block h-2 w-2 rounded-full bg-primary-glow animate-pulse" />
+              Open 24 hours
+            </div>
+          </div>
+
+          <div className="md:col-span-3">
+            <p className="text-xs uppercase tracking-[0.25em] text-cream/50">Explore</p>
+            <ul className="mt-6 space-y-3 text-sm">
+              {([
+                ["/", "Home"],
+                ["/about", "About"],
+                ["/services", "Services"],
+                ["/contact", "Contact"],
+              ] as const).map(([to, label]) => (
+                <li key={to}>
+                  <Link
+                    to={to}
+                    className="group relative inline-flex items-center text-cream/80 transition-colors duration-300 hover:text-primary-glow"
+                  >
+                    {label}
+                    <span className="pointer-events-none absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0 bg-primary-glow transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-3">
+            <p className="text-xs uppercase tracking-[0.25em] text-cream/50">Visit</p>
+            <ul className="mt-6 space-y-3 text-sm">
+              <li>
+                <a href="mailto:care@westpointmedical.co" className="text-cream/80 hover:text-primary-glow transition-colors">
+                  care@westpointmedical.co
+                </a>
+              </li>
+              <li>
+                <a href="tel:+263780969577" className="text-cream/80 hover:text-primary-glow transition-colors">
+                  +263 780 969 577
+                </a>
+              </li>
+              <li className="text-cream/50">WestPoint Centre</li>
+              <li className="text-cream/50">Harare, Zimbabwe</li>
+            </ul>
           </div>
         </div>
-        <div>
-          <h4 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-cream mb-6">Visit</h4>
-          <ul className="space-y-3 text-sm">
-            <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 text-primary-glow" /><span>WestPoint Centre, Harare, Zimbabwe</span></li>
-            <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 text-primary-glow" /><span>+263 780 969 577</span></li>
-            <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 text-primary-glow" /><span>care@westpointmedical.co</span></li>
-            <li className="flex gap-3"><Clock className="h-4 w-4 mt-0.5 text-primary-glow" /><span>24 / 7 emergency care</span></li>
-          </ul>
+
+        <div className="mt-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-cream/10 pt-8 text-xs text-cream/50">
+          <Logo variant="light" className="!h-16 md:!h-20 opacity-90" />
+          <p>© {year} WestPoint Medical. All rights reserved.</p>
         </div>
-        <div>
-          <h4 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-cream mb-6">Explore</h4>
-          <ul className="space-y-3 text-sm">
-            {[
-              { to: "/about", label: "About" },
-              { to: "/services", label: "Services" },
-              { to: "/contact", label: "Contact" },
-            ].map((l) => (
-              <li key={l.to}>
-                <Link
-                  to={l.to}
-                  className="group relative inline-flex items-center text-cream/80 transition-colors duration-300 hover:text-primary-glow"
-                >
-                  {l.label}
-                  <span className="pointer-events-none absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0 bg-primary-glow transition-transform duration-300 ease-out group-hover:scale-x-100" />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/50">
-        © {new Date().getFullYear()} WestPoint Medical. All rights reserved.
       </div>
     </footer>
   );
