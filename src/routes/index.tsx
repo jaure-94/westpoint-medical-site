@@ -57,7 +57,7 @@ const stagger: Variants = {
 };
 
 const rotatingWords = ["Heal.", "Restore.", "Thrive."];
-const revealViewport = { once: true, amount: 0.18 } as const;
+const revealViewport = { once: true, amount: 0, margin: "0px 0px -10% 0px" } as const;
 
 function Home() {
   return (
