@@ -254,8 +254,7 @@ function Pillars() {
     <section className="bg-cream">
       <motion.div
         initial="hidden"
-        whileInView="show"
-        viewport={revealViewport}
+        animate="show"
         variants={stagger}
         className="mx-auto max-w-7xl px-6 py-24 md:py-32 grid md:grid-cols-3 gap-12"
       >
