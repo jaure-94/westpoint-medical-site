@@ -253,7 +253,7 @@ function Pillars() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "200px" }}
+        viewport={revealViewport}
         variants={stagger}
         className="mx-auto max-w-7xl px-6 py-24 md:py-32 grid md:grid-cols-3 gap-12"
       >
@@ -312,7 +312,7 @@ function Services() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "200px" }}
+        viewport={revealViewport}
         variants={stagger}
         className="flex flex-wrap items-end justify-between gap-6 mb-14"
       >
@@ -335,7 +335,7 @@ function Services() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "200px" }}
+        viewport={revealViewport}
         variants={stagger}
         className="grid md:grid-cols-2 lg:grid-cols-4 gap-5"
       >
