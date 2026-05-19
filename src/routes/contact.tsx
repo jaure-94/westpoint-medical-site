@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
-import exterior from "@/assets/clinic/exterior-sign.jpg";
+import exterior from "@/assets/clinic/exterior-night.jpg";
 import { useState } from "react";
 import { motion } from "motion/react";
 
@@ -26,7 +26,7 @@ function Contact() {
   return (
     <Layout>
       {/* HERO */}
-      <section className="relative w-full min-h-[78svh]">
+      <section className="relative w-full min-h-[58svh]">
         <div className="absolute inset-0 overflow-hidden">
         <img
           src={exterior}
@@ -39,7 +39,7 @@ function Contact() {
 
 
 
-        <div className="relative mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16 pt-32 md:pt-40 pb-20 md:pb-28 text-cream">
+        <div className="relative mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16 pt-28 md:pt-32 pb-16 md:pb-20 text-cream">
           <motion.div
             initial="hidden"
             animate="show"
@@ -53,7 +53,7 @@ function Contact() {
             animate="show"
             custom={1}
             variants={fadeUp}
-            className="mt-5 font-display text-5xl md:text-7xl lg:text-8xl max-w-4xl leading-[0.95]"
+            className="mt-5 font-display text-4xl md:text-6xl lg:text-7xl max-w-4xl leading-[0.95]"
           >
             We&apos;re <span className="italic text-gradient-green">here.</span>
             <br className="hidden md:block" /> Day or night.
@@ -96,7 +96,7 @@ function Contact() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-30 mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16 -mb-24 md:-mb-28"
+          className="relative z-30 mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16 -mb-16 md:-mb-20"
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-3xl overflow-hidden border border-border bg-border shadow-soft">
             {[
@@ -125,7 +125,7 @@ function Contact() {
       </section>
 
       {/* MAP + FORM */}
-      <section className="mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16 pt-32 md:pt-40 pb-24 grid lg:grid-cols-12 gap-10">
+      <section className="mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16 pt-28 md:pt-32 pb-24 grid lg:grid-cols-12 gap-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
