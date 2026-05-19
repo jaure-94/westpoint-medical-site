@@ -101,6 +101,8 @@ function Hero() {
           <img
             src={exteriorDay}
             alt="WestPoint Medical clinic exterior"
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -381,6 +383,9 @@ function Story() {
               style={{ y }}
               src={exteriorWide}
               alt="WestPoint exterior"
+              loading="lazy"
+              decoding="async"
+              fetchPriority="low"
               className="h-[28rem] md:h-[34rem] w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
@@ -465,7 +470,14 @@ function Values() {
   return (
     <section className="relative bg-ink text-cream overflow-hidden">
       <div className="absolute inset-0 opacity-30">
-        <img src={dental1} alt="" className="h-full w-full object-cover" />
+        <img
+          src={dental1}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
+          className="h-full w-full object-cover"
+        />
         <div className="absolute inset-0 bg-ink/85" />
       </div>
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-[0.05]" />
