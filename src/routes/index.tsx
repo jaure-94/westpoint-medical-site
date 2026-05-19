@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
+import { ServiceCard } from "@/components/site/ServiceCard";
 import {
   ArrowUpRight,
   Heart,
