@@ -372,7 +372,7 @@ function Story() {
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "200px" }}
+          viewport={revealViewport}
           transition={{ duration: 1, ease }}
           className="relative"
         >
@@ -395,7 +395,7 @@ function Story() {
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "200px" }}
+          viewport={revealViewport}
           variants={stagger}
         >
           <motion.div variants={fadeUp} className="text-xs uppercase tracking-[0.25em] text-primary">
@@ -473,7 +473,7 @@ function Values() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "200px" }}
+        viewport={revealViewport}
         variants={stagger}
         className="relative mx-auto max-w-7xl px-6 py-24 md:py-32"
       >
@@ -513,7 +513,7 @@ function CtaBlock() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "200px" }}
+        viewport={revealViewport}
         variants={stagger}
         className="mx-auto max-w-5xl px-6 py-24 md:py-32 text-center"
       >
