@@ -17,7 +17,7 @@ export function Footer() {
           </div>
         </div>
         <div>
-          <h4 className="text-sm uppercase tracking-[0.2em] text-cream/50 mb-4">Visit</h4>
+          <h4 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-cream mb-6">Visit</h4>
           <ul className="space-y-3 text-sm">
             <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 text-primary-glow" /><span>WestPoint Centre, Harare, Zimbabwe</span></li>
             <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 text-primary-glow" /><span>+263 780 969 577</span></li>
@@ -26,11 +26,23 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h4 className="text-sm uppercase tracking-[0.2em] text-cream/50 mb-4">Explore</h4>
+          <h4 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-cream mb-6">Explore</h4>
           <ul className="space-y-3 text-sm">
-            <li><Link to="/about" className="hover:text-primary-glow">About</Link></li>
-            <li><Link to="/services" className="hover:text-primary-glow">Services</Link></li>
-            <li><Link to="/contact" className="hover:text-primary-glow">Contact</Link></li>
+            {[
+              { to: "/about", label: "About" },
+              { to: "/services", label: "Services" },
+              { to: "/contact", label: "Contact" },
+            ].map((l) => (
+              <li key={l.to}>
+                <Link
+                  to={l.to}
+                  className="group relative inline-flex items-center text-cream/80 transition-colors duration-300 hover:text-primary-glow"
+                >
+                  {l.label}
+                  <span className="pointer-events-none absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0 bg-primary-glow transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

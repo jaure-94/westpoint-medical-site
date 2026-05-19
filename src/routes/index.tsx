@@ -22,7 +22,7 @@ import consultation from "@/assets/clinic/consultation.jpg";
 import dental from "@/assets/clinic/dental-2.jpg";
 import dental1 from "@/assets/clinic/dental-1.jpg";
 import aesthetics from "@/assets/clinic/aesthetics.jpg";
-import resuscitation from "@/assets/clinic/resuscitation.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
