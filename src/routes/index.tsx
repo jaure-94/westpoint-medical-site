@@ -370,7 +370,7 @@ function Story() {
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-36 grid lg:grid-cols-2 gap-16 items-center">
         {/* Image side */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 1, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={revealViewport}
           transition={{ duration: 1, ease }}
