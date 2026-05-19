@@ -153,14 +153,14 @@ function Hero() {
                 {rotatingWords.map((w, i) => (
                   <motion.span
                     key={w}
-                    initial={{ y: "110%", opacity: 0 }}
+                    initial={{ y: i === 0 ? "110%" : "-110%", opacity: 0 }}
                     animate={
                       wordIndex === i
                         ? { y: "0%", opacity: 1 }
                         : { y: "-110%", opacity: 0 }
                     }
                     transition={{ duration: 0.7, ease }}
-                    className="absolute inset-0 text-primary-glow font-display font-medium"
+                    className="absolute inset-0 text-primary-glow font-display font-bold"
                   >
                     {w}
                   </motion.span>
