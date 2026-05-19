@@ -260,7 +260,7 @@ function Pillars() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "200px" }}
         variants={stagger}
         className="mx-auto max-w-7xl px-6 py-24 md:py-32 grid md:grid-cols-3 gap-12"
       >
@@ -319,7 +319,7 @@ function Services() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "200px" }}
         variants={stagger}
         className="flex flex-wrap items-end justify-between gap-6 mb-14"
       >
@@ -342,7 +342,7 @@ function Services() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "-80px" }}
+        viewport={{ once: true, margin: "200px" }}
         variants={stagger}
         className="grid md:grid-cols-2 lg:grid-cols-4 gap-5"
       >
@@ -379,7 +379,7 @@ function Story() {
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, margin: "200px" }}
           transition={{ duration: 1, ease }}
           className="relative"
         >
@@ -402,7 +402,7 @@ function Story() {
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, margin: "200px" }}
           variants={stagger}
         >
           <motion.div variants={fadeUp} className="text-xs uppercase tracking-[0.25em] text-primary">
@@ -480,7 +480,7 @@ function Values() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "200px" }}
         variants={stagger}
         className="relative mx-auto max-w-7xl px-6 py-24 md:py-32"
       >
@@ -520,7 +520,7 @@ function CtaBlock() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "200px" }}
         variants={stagger}
         className="mx-auto max-w-5xl px-6 py-24 md:py-32 text-center"
       >
