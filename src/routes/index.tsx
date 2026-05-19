@@ -43,7 +43,7 @@ export const Route = createFileRoute("/")({
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 1, y: 28 },
   show: (i: number = 0) => ({
     opacity: 1,
     y: 0,
@@ -366,7 +366,7 @@ function Story() {
   ];
 
   return (
-    <section ref={ref} className="bg-background overflow-hidden">
+    <section ref={ref} className="relative bg-background overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-36 grid lg:grid-cols-2 gap-16 items-center">
         {/* Image side */}
         <motion.div
