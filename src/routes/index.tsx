@@ -57,6 +57,7 @@ const stagger: Variants = {
 };
 
 const rotatingWords = ["Heal.", "Restore.", "Thrive."];
+const revealViewport = { once: true, amount: 0.18 } as const;
 
 function Home() {
   return (
@@ -122,14 +123,8 @@ function Hero() {
 
         {/* Main copy */}
         <div className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 px-6 md:px-12 lg:px-16 pt-16 md:pt-24 pb-12">
-          <motion.div
-            className="max-w-4xl"
-            initial={false}
-            animate="show"
-            variants={stagger}
-          >
-            <motion.div
-              variants={fadeUp}
+          <div className="max-w-4xl">
+            <div
               className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 backdrop-blur px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-cream/75"
             >
               <span className="relative flex h-1.5 w-1.5">
@@ -137,11 +132,10 @@ function Hero() {
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary-glow" />
               </span>
               Now open · Doors never close
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={fadeUp}
-              className="mt-8 font-display font-medium text-[3rem] sm:text-[4.5rem] lg:text-[6.25rem] leading-[0.98] tracking-tight"
+            <h1
+              className="hero-load-in hero-load-in-delay-1 mt-8 font-display font-medium text-[3rem] sm:text-[4.5rem] lg:text-[6.25rem] leading-[0.98] tracking-tight"
             >
               A new standard
               <br />
@@ -163,17 +157,16 @@ function Hero() {
                   </motion.span>
                 ))}
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={fadeUp}
-              className="mt-8 max-w-xl text-base md:text-lg leading-relaxed text-cream/80"
+            <p
+              className="hero-load-in hero-load-in-delay-2 mt-8 max-w-xl text-base md:text-lg leading-relaxed text-cream/80"
             >
               Personalised medical and wellness care designed to restore your strength,
               vitality and confidence — under one calm, considered roof, around the clock.
-            </motion.p>
+            </p>
 
-            <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="hero-load-in hero-load-in-delay-3 mt-10 flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
                 className="group inline-flex items-center gap-2 rounded-full bg-primary-glow px-7 py-3.5 text-sm font-medium text-ink transition-transform hover:scale-[1.03]"
@@ -190,8 +183,8 @@ function Hero() {
                 </span>
                 <span className="text-sm font-medium tracking-wide">+263 780 969 577</span>
               </a>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
 
         {/* Bottom meta strip */}
