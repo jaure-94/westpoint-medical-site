@@ -43,7 +43,7 @@ export const Route = createFileRoute("/")({
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 1, y: 28 },
   show: (i: number = 0) => ({
     opacity: 1,
     y: 0,
@@ -101,6 +101,8 @@ function Hero() {
           <img
             src={exteriorDay}
             alt="WestPoint Medical clinic exterior"
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -366,11 +368,11 @@ function Story() {
   ];
 
   return (
-    <section ref={ref} className="bg-background overflow-hidden">
+    <section ref={ref} className="relative bg-background overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-36 grid lg:grid-cols-2 gap-16 items-center">
         {/* Image side */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 1, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={revealViewport}
           transition={{ duration: 1, ease }}
@@ -381,6 +383,9 @@ function Story() {
               style={{ y }}
               src={exteriorWide}
               alt="WestPoint exterior"
+              loading="lazy"
+              decoding="async"
+              fetchPriority="low"
               className="h-[28rem] md:h-[34rem] w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
@@ -465,7 +470,14 @@ function Values() {
   return (
     <section className="relative bg-ink text-cream overflow-hidden">
       <div className="absolute inset-0 opacity-30">
-        <img src={dental1} alt="" className="h-full w-full object-cover" />
+        <img
+          src={dental1}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
+          className="h-full w-full object-cover"
+        />
         <div className="absolute inset-0 bg-ink/85" />
       </div>
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-[0.05]" />

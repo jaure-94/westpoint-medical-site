@@ -48,7 +48,14 @@ export function ServiceCard({ icon: Icon, title, img, tag, blurb }: ServiceCardP
       className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:shadow-soft transition-shadow"
     >
       <div className="aspect-[4/5] overflow-hidden relative">
-        <img src={img} alt={title} className="h-full w-full object-cover" />
+        <img
+          src={img}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
+          className="h-full w-full object-cover"
+        />
 
         {/* Swipe-up reveal overlay */}
         <div
