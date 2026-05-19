@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
+import { ServiceCard } from "@/components/site/ServiceCard";
 import {
   ArrowUpRight,
   Heart,
@@ -293,10 +294,34 @@ function Pillars() {
 /* ────────────────────────────────────────────────────── SERVICES ── */
 function Services() {
   const items = [
-    { icon: Stethoscope, title: "General Practice", img: consultation, tag: "Walk-in & booked" },
-    { icon: Heart, title: "Dental Care", img: dental, tag: "Modern surgery" },
-    { icon: Sparkles, title: "Aesthetics & Wellness", img: aesthetics, tag: "Looking & feeling" },
-    { icon: Pill, title: "24h Pharmacy", img: wall, tag: "Always stocked" },
+    {
+      icon: Stethoscope,
+      title: "General Practice",
+      img: consultation,
+      tag: "Walk-in & booked",
+      blurb: "Same-day consultations, chronic care, screenings and referrals from a team that remembers you.",
+    },
+    {
+      icon: Heart,
+      title: "Dental Care",
+      img: dental,
+      tag: "Modern surgery",
+      blurb: "Routine and advanced dentistry in a calm, modern suite — gentle hands, sharp tools.",
+    },
+    {
+      icon: Sparkles,
+      title: "Aesthetics & Wellness",
+      img: aesthetics,
+      tag: "Looking & feeling",
+      blurb: "Skin, body and longevity treatments delivered by trained medical staff, never technicians.",
+    },
+    {
+      icon: Pill,
+      title: "24h Pharmacy",
+      img: wall,
+      tag: "Always stocked",
+      blurb: "Prescriptions, OTC and dispensing support — open every hour of the day and night.",
+    },
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
@@ -330,34 +355,9 @@ function Services() {
         variants={stagger}
         className="grid md:grid-cols-2 lg:grid-cols-4 gap-5"
       >
-        {items.map(({ icon: Icon, title, img, tag }) => (
-          <motion.div
-            key={title}
-            variants={fadeUp}
-            whileHover={{ y: -6 }}
-            transition={{ duration: 0.4, ease }}
-            className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:shadow-soft transition-shadow"
-          >
-            <div className="aspect-[4/5] overflow-hidden">
-              <motion.img
-                src={img}
-                alt={title}
-                className="h-full w-full object-cover"
-                whileHover={{ scale: 1.08 }}
-                transition={{ duration: 1.2, ease }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-            <div className="p-5">
-              <div className="flex items-center justify-between">
-                <Icon className="h-5 w-5 text-primary" />
-                <ArrowUpRight className="h-4 w-4 text-muted-foreground/40 transition-all group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </div>
-              <div className="mt-3 font-display text-xl">{title}</div>
-              <div className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                {tag}
-              </div>
-            </div>
+        {items.map((item) => (
+          <motion.div key={item.title} variants={fadeUp}>
+            <ServiceCard {...item} />
           </motion.div>
         ))}
       </motion.div>
