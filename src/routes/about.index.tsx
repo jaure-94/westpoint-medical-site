@@ -88,6 +88,63 @@ function About() {
         </div>
       </section>
 
+      {/* Vision & Mission */}
+      <section className="relative overflow-hidden bg-ink text-background">
+        <div className="absolute inset-0 bg-grain opacity-[0.12]" aria-hidden />
+        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32 grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-4">
+            <div className="text-xs uppercase tracking-[0.25em] text-primary-glow">Direction</div>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.02]">
+              Where we're <span className="italic text-gradient-green">going</span>, and why.
+            </h2>
+          </div>
+          <div className="md:col-span-8 grid sm:grid-cols-2 gap-6">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm">
+              <div className="text-xs uppercase tracking-[0.25em] text-primary-glow">Vision</div>
+              <p className="mt-5 text-lg leading-relaxed text-background/85">
+                To be Zimbabwe's leading network of modern medical centers — rooted in community, driven by innovation, and dedicated to delivering compassionate, world-class healthcare.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm">
+              <div className="text-xs uppercase tracking-[0.25em] text-primary-glow">Mission</div>
+              <p className="mt-5 text-base leading-relaxed text-background/85">
+                To provide accessible, high-quality healthcare through modern facilities, advanced technology and a team that genuinely cares — promoting wellness, restoring dignity, and creating a welcoming environment where every patient is valued, from our local communities to every corner of Zimbabwe.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <div className="grid md:grid-cols-12 gap-12 items-end">
+          <div className="md:col-span-5">
+            <div className="text-xs uppercase tracking-[0.25em] text-primary">Our values</div>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.02]">
+              Ten quiet promises we keep.
+            </h2>
+          </div>
+          <p className="md:col-span-6 md:col-start-7 text-muted-foreground text-lg">
+            Not posters on a wall — operating principles. They shape how we hire, how we design our rooms, and how we answer the phone at 3am.
+          </p>
+        </div>
+
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-3xl overflow-hidden ring-1 ring-border">
+          {values.map(({ n, t, d, Icon }) => (
+            <div key={n} className="bg-card p-8 flex flex-col gap-4 transition-colors hover:bg-accent/30">
+              <div className="flex items-center justify-between">
+                <div className="h-11 w-11 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <span className="text-xs tracking-[0.25em] text-muted-foreground">{n}</span>
+              </div>
+              <div className="font-display text-xl">{t}</div>
+              <p className="text-sm leading-relaxed text-muted-foreground">{d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-6 py-24 grid md:grid-cols-2 gap-4">
         <img src={consult} alt="Consultation room interior" className="aspect-[4/5] w-full object-cover rounded-3xl" />
         <div className="flex flex-col justify-end p-2 md:p-10">
