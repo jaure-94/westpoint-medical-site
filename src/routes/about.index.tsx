@@ -3,7 +3,6 @@ import { Layout } from "@/components/site/Layout";
 import wall from "@/assets/clinic/health-wellness-wall.jpg";
 import exterior from "@/assets/clinic/exterior-wide.jpg";
 import consult from "@/assets/clinic/consultation.jpg";
-import team from "@/assets/clinic/team.jpg";
 import {
   ArrowUpRight,
   Heart,
