@@ -6,13 +6,19 @@ export type TeamMember = {
   image: string;
 };
 
-export function TeamMemberCard({ member }: { member: TeamMember }) {
+export function TeamMemberCard({
+  member,
+  hideCaption = false,
+  className = "aspect-[3/4]",
+}: {
+  member: TeamMember;
+  hideCaption?: boolean;
+  className?: string;
+}) {
   const [loaded, setLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    // If the image was already loaded (cache / completed before hydration),
-    // onLoad won't fire — sync from the DOM.
     if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
       setLoaded(true);
     }
@@ -20,7 +26,7 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
 
   return (
     <figure className="group">
-      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-muted">
+      <div className={`relative w-full overflow-hidden rounded-2xl bg-muted ${className}`}>
         {!loaded && (
           <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-muted via-muted/60 to-muted" />
         )}
@@ -37,10 +43,12 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
           }`}
         />
       </div>
-      <figcaption className="mt-4">
-        <div className="font-display text-lg leading-tight">{member.name}</div>
-        <div className="mt-1 text-sm text-muted-foreground">{member.title}</div>
-      </figcaption>
+      {!hideCaption && (
+        <figcaption className="mt-4">
+          <div className="font-display text-lg leading-tight">{member.name}</div>
+          <div className="mt-1 text-sm text-muted-foreground">{member.title}</div>
+        </figcaption>
+      )}
     </figure>
   );
 }
