@@ -47,6 +47,20 @@ const groups = [
     blurb: "A fully equipped resuscitation room with 24-hour medical staff on-site for urgent care.",
     items: ["24/7 emergency cover", "Resuscitation room", "Stabilisation & transfer", "Trauma care", "On-site doctor"],
   },
+  {
+    title: "Pharmacies",
+    img: pharmacyImg,
+    icon: Pill,
+    blurb: "24-hour pharmacy services with dispensing, OTC support and expert medication guidance available around the clock.",
+    items: ["24/7 dispensing", "OTC medications", "Prescription support", "Medication counselling", "Health supplements"],
+  },
+  {
+    title: "Radiology",
+    img: radiologyImg,
+    icon: Scan,
+    blurb: "State-of-the-art diagnostic imaging including X-ray, ultrasound and CT with rapid turnaround and specialist reporting.",
+    items: ["X-ray imaging", "Ultrasound", "CT scanning", "Rapid reporting", "Specialist referrals"],
+  },
 ];
 
 
