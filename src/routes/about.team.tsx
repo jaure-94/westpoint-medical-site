@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { TeamMemberCard, type TeamMember } from "@/components/site/TeamMemberCard";
+import teamGroup from "@/assets/clinic/team.jpg";
 import keith from "@/assets/team/keith-ndlovu.jpeg";
 import essabelle from "@/assets/team/essabelle-rushwaya.jpeg";
 import isabella from "@/assets/team/isabella-chaniwa.jpeg";
@@ -55,18 +56,32 @@ const team: readonly TeamMember[] = [
 function Team() {
   return (
     <Layout>
-      <section className="mx-auto max-w-7xl px-6 pt-20 pb-12 md:pt-28">
-        <div className="text-xs uppercase tracking-[0.25em] text-primary">Our people</div>
-        <h1 className="mt-4 font-display text-5xl md:text-7xl max-w-4xl leading-[0.98]">
-          Meet our <span className="italic text-gradient-green">team</span>.
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
-          The clinicians, dentists, nurses and care professionals who make WestPoint feel like home.
-        </p>
+      {/* HERO */}
+      <section className="relative w-full min-h-[58svh]">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={teamGroup}
+            alt="The WestPoint Medical team"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-6 pt-28 md:pt-32 pb-20 md:pb-28 text-cream">
+          <div className="text-xs uppercase tracking-[0.28em] text-primary-glow">Our people</div>
+          <h1 className="mt-5 font-display text-5xl md:text-7xl max-w-4xl leading-[0.95]">
+            Meet our <span className="italic text-gradient-green">team</span>.
+          </h1>
+          <p className="mt-6 max-w-2xl text-base md:text-lg text-cream/80">
+            The clinicians, dentists, nurses and care professionals who make WestPoint feel like home.
+          </p>
+        </div>
       </section>
 
+
       {/* Founder spotlight */}
-      <section className="mx-auto max-w-7xl px-6 pb-16">
+      <section className="mx-auto max-w-7xl px-6 pt-20 md:pt-24 pb-16">
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-14">
           <div className="md:col-span-5">
             <div className="relative">

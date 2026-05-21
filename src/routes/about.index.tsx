@@ -3,7 +3,6 @@ import { Layout } from "@/components/site/Layout";
 import wall from "@/assets/clinic/health-wellness-wall.jpg";
 import exterior from "@/assets/clinic/exterior-wide.jpg";
 import consult from "@/assets/clinic/consultation.jpg";
-import team from "@/assets/clinic/team.jpg";
 import {
   ArrowUpRight,
   Heart,
@@ -158,9 +157,6 @@ function About() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-24">
-        <img src={team} alt="The WestPoint Medical team" className="w-full aspect-[21/9] object-cover rounded-3xl" />
-      </section>
     </Layout>
   );
 }
