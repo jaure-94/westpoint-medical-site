@@ -1,10 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
-import { Stethoscope, Heart, Sparkles, Pill, Activity, Syringe, Baby, Microscope, ArrowUpRight } from "lucide-react";
+import { Stethoscope, Heart, Sparkles, Pill, Activity, Scan, ArrowUpRight } from "lucide-react";
 import dental from "@/assets/clinic/dental-1.jpg";
 import consult from "@/assets/clinic/consultation.jpg";
 import aesthetics from "@/assets/clinic/aesthetics.jpg";
 import resus from "@/assets/clinic/resuscitation.jpg";
+import pharmacyImg from "@/assets/clinic/pharmacy.jpg";
+import radiologyImg from "@/assets/clinic/radiology.jpg";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
