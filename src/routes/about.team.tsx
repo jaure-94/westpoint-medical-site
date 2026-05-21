@@ -81,7 +81,7 @@ function Team() {
 
 
       {/* Founder spotlight */}
-      <section className="mx-auto max-w-7xl px-6 pb-16">
+      <section className="mx-auto max-w-7xl px-6 pt-20 md:pt-24 pb-16">
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-14">
           <div className="md:col-span-5">
             <div className="relative">
