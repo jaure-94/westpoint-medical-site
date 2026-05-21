@@ -13,8 +13,6 @@ import {
   Calendar,
   CheckCircle2,
 } from "lucide-react";
-import { motion, useScroll, useTransform, type Variants } from "motion/react";
-import { useEffect, useState } from "react";
 
 import exteriorDay from "@/assets/clinic/exterior-day.jpg";
 import exteriorWide from "@/assets/clinic/exterior-wide.jpg";
@@ -23,7 +21,6 @@ import consultation from "@/assets/clinic/consultation.jpg";
 import dental from "@/assets/clinic/dental-2.jpg";
 import dental1 from "@/assets/clinic/dental-1.jpg";
 import aesthetics from "@/assets/clinic/aesthetics.jpg";
-
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,25 +36,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
-
-const ease = [0.22, 1, 0.36, 1] as const;
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  show: (i: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease, delay: 0.08 * i },
-  }),
-};
-
-const stagger: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
-};
-
-const rotatingWords = ["Heal.", "Restore.", "Thrive."];
-const revealViewport = { once: true, amount: 0.2 } as const;
 
 function Home() {
   return (
@@ -75,22 +53,10 @@ function Home() {
 
 /* ────────────────────────────────────────────────────────── HERO ── */
 function Hero() {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 720], ["0%", "18%"]);
-  const scale = useTransform(scrollY, [0, 720], [1, 1.08]);
-  const overlayOpacity = useTransform(scrollY, [0, 720], [0.55, 0.85]);
-
-  const [wordIndex, setWordIndex] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setWordIndex((p) => (p + 1) % rotatingWords.length), 2600);
-    return () => clearInterval(id);
-  }, []);
-
   return (
     <section className="relative w-full">
       <div className="relative w-full overflow-hidden bg-ink text-cream min-h-[100svh] flex flex-col">
-        {/* Parallax background image */}
-        <motion.div style={{ y, scale }} className="absolute inset-0 -z-0">
+        <div className="absolute inset-0 -z-0">
           <img
             src={exteriorDay}
             alt="WestPoint Medical clinic exterior"
@@ -98,13 +64,9 @@ function Hero() {
             decoding="async"
             className="h-full w-full object-cover"
           />
-        </motion.div>
+        </div>
 
-        {/* Gradient overlays — darker on the left, fading transparent to the right */}
-        <motion.div
-          style={{ opacity: overlayOpacity }}
-          className="absolute inset-0 bg-gradient-to-b from-ink/65 via-ink/55 to-ink/95"
-        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/65 via-ink/55 to-ink/95" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/55 to-ink/10" />
         <div className="pointer-events-none absolute inset-0 bg-grain opacity-[0.06]" />
         <div className="pointer-events-none absolute -top-40 -right-32 h-[40rem] w-[40rem] rounded-full bg-primary/15 blur-3xl" />
@@ -122,56 +84,36 @@ function Hero() {
             <div
               className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 backdrop-blur px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-cream/75"
             >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-glow opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary-glow" />
-              </span>
+              <span className="inline-flex h-1.5 w-1.5 rounded-full bg-primary-glow" />
               Now open · Doors never close
             </div>
 
             <h1
-              className="hero-load-in hero-load-in-delay-1 mt-8 font-display font-medium text-[3rem] sm:text-[4.5rem] lg:text-[6.25rem] leading-[0.98] tracking-tight"
+              className="mt-8 font-display font-medium text-[3rem] leading-[0.98] tracking-tight sm:text-[4.5rem] lg:text-[6.25rem]"
             >
               A new standard
               <br />
-              of care to{" "}
-              <span className="relative inline-block align-baseline overflow-hidden h-[1em] min-w-[5ch]">
-                {rotatingWords.map((w, i) => (
-                  <motion.span
-                    key={w}
-                    initial={{ y: i === 0 ? "110%" : "-110%", opacity: 0 }}
-                    animate={
-                      wordIndex === i
-                        ? { y: "0%", opacity: 1 }
-                        : { y: "-110%", opacity: 0 }
-                    }
-                    transition={{ duration: 0.7, ease }}
-                    className="absolute inset-0 text-primary-glow font-display font-bold"
-                  >
-                    {w}
-                  </motion.span>
-                ))}
-              </span>
+              of care for <span className="text-primary-glow font-display font-bold">health, wellness and longevity.</span>
             </h1>
 
             <p
-              className="hero-load-in hero-load-in-delay-2 mt-8 max-w-xl text-base md:text-lg leading-relaxed text-cream/80"
+              className="mt-8 max-w-xl text-base leading-relaxed text-cream/80 md:text-lg"
             >
               Personalised medical and wellness care designed to restore your strength,
               vitality and confidence — under one calm, considered roof, around the clock.
             </p>
 
-            <div className="hero-load-in hero-load-in-delay-3 mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-primary-glow px-7 py-3.5 text-sm font-medium text-ink transition-transform hover:scale-[1.03]"
+                className="inline-flex items-center gap-2 rounded-full bg-primary-glow px-7 py-3.5 text-sm font-medium text-ink"
               >
                 Book a visit
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="h-4 w-4" />
               </Link>
               <a
                 href="tel:+263780969577"
-                className="group inline-flex items-center gap-3 rounded-full border border-cream/20 px-5 py-3 text-cream backdrop-blur transition-colors hover:bg-cream/5"
+                className="inline-flex items-center gap-3 rounded-full border border-cream/20 px-5 py-3 text-cream backdrop-blur"
               >
                 <span className="grid h-8 w-8 place-items-center rounded-full bg-cream/10">
                   <Phone className="h-3.5 w-3.5" />
@@ -220,18 +162,14 @@ function Marquee() {
   ];
   return (
     <div className="overflow-hidden border-y border-border bg-background py-6">
-      <motion.div
-        className="flex gap-12 whitespace-nowrap text-xl md:text-2xl font-display text-foreground/70"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
-      >
-        {[...items, ...items].map((it, i) => (
-          <span key={i} className="flex items-center gap-12">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 text-center font-display text-xl text-foreground/70 md:text-2xl">
+        {items.map((it) => (
+          <span key={it} className="flex items-center gap-4">
             {it}
             <span className="h-1.5 w-1.5 rounded-full bg-primary-glow" />
           </span>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }
@@ -245,15 +183,9 @@ function Pillars() {
   ];
   return (
     <section className="bg-cream">
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={revealViewport}
-        variants={stagger}
-        className="mx-auto max-w-7xl px-6 py-24 md:py-32 grid md:grid-cols-3 gap-12"
-      >
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-3 md:py-32">
         {pillars.map((p, i) => (
-          <motion.div key={p.word} variants={fadeUp} className="group">
+          <div key={p.word} className="group">
             <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
               0{i + 1}
             </div>
@@ -262,10 +194,10 @@ function Pillars() {
               <span className="text-primary">.</span>
             </div>
             <p className="mt-5 text-muted-foreground max-w-xs leading-relaxed">{p.desc}</p>
-            <div className="mt-6 h-px w-12 bg-primary transition-all duration-500 group-hover:w-24" />
-          </motion.div>
+            <div className="mt-6 h-px w-16 bg-primary" />
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }
@@ -304,42 +236,30 @@ function Services() {
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={revealViewport}
-        variants={stagger}
-        className="flex flex-wrap items-end justify-between gap-6 mb-14"
-      >
-        <motion.div variants={fadeUp}>
+      <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+        <div>
           <div className="text-xs uppercase tracking-[0.25em] text-primary">Our care</div>
           <h2 className="mt-3 font-display text-4xl md:text-6xl max-w-2xl leading-[1.05]">
             Everything you need, <span className="italic text-primary">under one roof.</span>
           </h2>
-        </motion.div>
-        <motion.div variants={fadeUp}>
+        </div>
+        <div>
           <Link
             to="/services"
             className="inline-flex items-center gap-2 text-sm font-medium hover:text-primary"
           >
             All services <ArrowUpRight className="h-4 w-4" />
           </Link>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={revealViewport}
-        variants={stagger}
-        className="grid md:grid-cols-2 lg:grid-cols-4 gap-5"
-      >
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {items.map((item) => (
-          <motion.div key={item.title} variants={fadeUp}>
+          <div key={item.title}>
             <ServiceCard {...item} />
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }
@@ -356,25 +276,14 @@ function Story() {
   return (
     <section className="relative bg-background overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-36 grid lg:grid-cols-2 gap-16 items-center">
-        {/* Image side */}
-        <motion.div
-          initial={{ opacity: 0, x: -24, y: 24 }}
-          whileInView={{ opacity: 1, x: 0, y: 0 }}
-          viewport={revealViewport}
-          transition={{ duration: 1, ease }}
-          className="relative"
-        >
+        <div className="relative">
           <div className="relative overflow-hidden rounded-3xl shadow-soft">
-            <motion.img
+            <img
               src={exteriorWide}
               alt="WestPoint exterior"
               loading="lazy"
               decoding="async"
               fetchPriority="low"
-              initial={{ scale: 1.08 }}
-              whileInView={{ scale: 1 }}
-              viewport={revealViewport}
-              transition={{ duration: 1.2, ease }}
               className="h-[28rem] md:h-[34rem] w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
@@ -383,50 +292,38 @@ function Story() {
             <span className="h-1.5 w-1.5 rounded-full bg-primary-glow" />
             Built for you
           </div>
-        </motion.div>
+        </div>
 
-        {/* Copy side */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={revealViewport}
-          variants={stagger}
-        >
-          <motion.div variants={fadeUp} className="text-xs uppercase tracking-[0.25em] text-primary">
+        <div>
+          <div className="text-xs uppercase tracking-[0.25em] text-primary">
             Why WestPoint
-          </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="mt-4 font-display text-4xl md:text-5xl leading-[1.05]"
-          >
+          </div>
+          <h2 className="mt-4 font-display text-4xl leading-[1.05] md:text-5xl">
             A quieter kind of care, <span className="italic text-primary">held to a higher bar.</span>
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className="mt-6 text-muted-foreground text-lg leading-relaxed max-w-lg"
-          >
+          </h2>
+          <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
             We invested in the building so we could invest more attention in you. Every
             finish, every room, every protocol — chosen with intention.
-          </motion.p>
+          </p>
 
-          <motion.ul variants={stagger} className="mt-8 space-y-3">
+          <ul className="mt-8 space-y-3">
             {bullets.map((b) => (
-              <motion.li key={b} variants={fadeUp} className="flex items-start gap-3">
+              <li key={b} className="flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-foreground/85">{b}</span>
-              </motion.li>
+              </li>
             ))}
-          </motion.ul>
+          </ul>
 
-          <motion.div variants={fadeUp} className="mt-10">
+          <div className="mt-10">
             <Link
               to="/about"
               className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary"
             >
               Read our story <ArrowUpRight className="h-4 w-4" />
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -471,38 +368,29 @@ function Values() {
       </div>
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-[0.05]" />
 
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={revealViewport}
-        variants={stagger}
-        className="relative mx-auto max-w-7xl px-6 py-24 md:py-32"
-      >
-        <motion.div variants={fadeUp} className="max-w-2xl mb-14">
+      <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <div className="mb-14 max-w-2xl">
           <div className="text-xs uppercase tracking-[0.25em] text-primary-glow">
             Our promise
           </div>
           <h2 className="mt-3 font-display text-4xl md:text-5xl leading-[1.05]">
             Four things you can <span className="italic text-primary-glow">always</span> expect.
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {items.map(({ icon: Icon, title, body }) => (
-            <motion.div
+            <div
               key={title}
-              variants={fadeUp}
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.4, ease }}
               className="rounded-2xl border border-cream/10 bg-cream/5 backdrop-blur p-6"
             >
               <Icon className="h-6 w-6 text-primary-glow" />
               <div className="mt-5 font-display text-xl">{title}</div>
               <p className="mt-3 text-sm text-cream/70 leading-relaxed">{body}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
@@ -511,47 +399,32 @@ function Values() {
 function CtaBlock() {
   return (
     <section className="bg-background">
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={revealViewport}
-        variants={stagger}
-        className="mx-auto max-w-5xl px-6 py-24 md:py-32 text-center"
-      >
-        <motion.div
-          variants={fadeUp}
-          className="inline-flex items-center gap-2 rounded-full border border-border bg-cream px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-muted-foreground"
-        >
+      <div className="mx-auto max-w-5xl px-6 py-24 text-center md:py-32">
+        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-cream px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
           <span className="h-1.5 w-1.5 rounded-full bg-primary-glow" />
           Ready when you are
-        </motion.div>
-        <motion.h2
-          variants={fadeUp}
-          className="mt-6 font-display text-4xl md:text-6xl max-w-3xl mx-auto leading-[1.02]"
-        >
+        </div>
+        <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl leading-[1.02] md:text-6xl">
           Care, the way it should have <span className="italic text-primary">always felt.</span>
-        </motion.h2>
-        <motion.p
-          variants={fadeUp}
-          className="mt-6 text-muted-foreground max-w-xl mx-auto text-lg"
-        >
+        </h2>
+        <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
           Walk in, call, or book online. We&apos;ll take it from there.
-        </motion.p>
-        <motion.div variants={fadeUp} className="mt-10 flex justify-center gap-3 flex-wrap">
+        </p>
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground shadow-glow hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground shadow-glow hover:bg-primary/90"
           >
             Book a visit <ArrowUpRight className="h-4 w-4" />
           </Link>
           <a
             href="tel:+263780969577"
-            className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-medium hover:bg-muted transition-colors"
+            className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-medium hover:bg-muted"
           >
             Call +263 780 969 577
           </a>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }
