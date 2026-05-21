@@ -1,10 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
-import { Stethoscope, Heart, Sparkles, Pill, Activity, Syringe, Baby, Microscope, ArrowUpRight } from "lucide-react";
+import { Stethoscope, Heart, Sparkles, Pill, Activity, Scan, ArrowUpRight } from "lucide-react";
 import dental from "@/assets/clinic/dental-1.jpg";
 import consult from "@/assets/clinic/consultation.jpg";
 import aesthetics from "@/assets/clinic/aesthetics.jpg";
 import resus from "@/assets/clinic/resuscitation.jpg";
+import pharmacyImg from "@/assets/clinic/pharmacy.jpg";
+import radiologyImg from "@/assets/clinic/radiology.jpg";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -45,14 +47,22 @@ const groups = [
     blurb: "A fully equipped resuscitation room with 24-hour medical staff on-site for urgent care.",
     items: ["24/7 emergency cover", "Resuscitation room", "Stabilisation & transfer", "Trauma care", "On-site doctor"],
   },
+  {
+    title: "Pharmacies",
+    img: pharmacyImg,
+    icon: Pill,
+    blurb: "24-hour pharmacy services with dispensing, OTC support and expert medication guidance available around the clock.",
+    items: ["24/7 dispensing", "OTC medications", "Prescription support", "Medication counselling", "Health supplements"],
+  },
+  {
+    title: "Radiology",
+    img: radiologyImg,
+    icon: Scan,
+    blurb: "State-of-the-art diagnostic imaging including X-ray, ultrasound and CT with rapid turnaround and specialist reporting.",
+    items: ["X-ray imaging", "Ultrasound", "CT scanning", "Rapid reporting", "Specialist referrals"],
+  },
 ];
 
-const extras = [
-  { icon: Pill, title: "24-Hour Pharmacy", body: "Dispense, OTC and prescription support — any hour of the day or night." },
-  { icon: Microscope, title: "On-site Diagnostics", body: "Rapid testing for the most common acute and chronic conditions." },
-  { icon: Syringe, title: "Vaccinations", body: "Routine, paediatric and travel vaccinations administered on schedule." },
-  { icon: Baby, title: "Family & Paediatric", body: "Care designed for the whole family, with extra patience for the smallest visitors." },
-];
 
 function Services() {
   return (
@@ -100,20 +110,6 @@ function Services() {
         })}
       </section>
 
-      <section className="border-y border-border bg-cream">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <h2 className="font-display text-3xl md:text-4xl max-w-xl">And the supporting cast.</h2>
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {extras.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="rounded-2xl bg-background p-6 border border-border">
-                <Icon className="h-5 w-5 text-primary" />
-                <div className="mt-4 font-display text-xl">{title}</div>
-                <p className="mt-2 text-sm text-muted-foreground">{body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="mx-auto max-w-7xl px-6 py-24 text-center">
         <h2 className="font-display text-4xl md:text-5xl max-w-2xl mx-auto">Not sure what you need?</h2>
