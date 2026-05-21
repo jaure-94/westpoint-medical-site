@@ -93,7 +93,7 @@ function Hero() {
             >
               A new standard
               <br />
-              of care for <span className="text-primary-glow font-display font-bold">health, wellness and longevity.</span>
+              of <span className="text-primary-glow font-display font-bold">care.</span>
             </h1>
 
             <p
