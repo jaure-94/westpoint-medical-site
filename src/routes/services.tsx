@@ -7,6 +7,11 @@ import aesthetics from "@/assets/clinic/aesthetics.jpg";
 import resus from "@/assets/clinic/resuscitation.jpg";
 import pharmacyImg from "@/assets/clinic/pharmacy.jpg";
 import radiologyImg from "@/assets/clinic/radiology.jpg";
+import dentalLogo from "@/assets/clinic/logos/dental.png";
+import wellnessLogo from "@/assets/clinic/logos/wellness.png";
+import emergencyLogo from "@/assets/clinic/logos/emergency.png";
+import pharmaciesLogo from "@/assets/clinic/logos/pharmacies.png";
+import radiologyLogo from "@/assets/clinic/logos/radiology.png";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -30,6 +35,7 @@ const groups = [
     title: "Dental",
     img: dental,
     icon: Heart,
+    logo: dentalLogo,
     blurb: "Modern dental suites for routine and advanced care, in a calm room that doesn't feel like a clinic.",
     items: ["Cleanings & hygiene", "Fillings & restorations", "Root canal therapy", "Crowns & bridges", "Cosmetic dentistry"],
   },
@@ -37,6 +43,7 @@ const groups = [
     title: "Aesthetics & Wellness",
     img: aesthetics,
     icon: Sparkles,
+    logo: wellnessLogo,
     blurb: "A dedicated wing for skin, body and longevity treatments delivered by trained medical staff.",
     items: ["Skin consultations", "Injectables", "IV wellness drips", "Body contouring", "Longevity programs"],
   },
@@ -44,6 +51,7 @@ const groups = [
     title: "Emergency & Resuscitation",
     img: resus,
     icon: Activity,
+    logo: emergencyLogo,
     blurb: "A fully equipped resuscitation room with 24-hour medical staff on-site for urgent care.",
     items: ["24/7 emergency cover", "Resuscitation room", "Stabilisation & transfer", "Trauma care", "On-site doctor"],
   },
@@ -51,6 +59,7 @@ const groups = [
     title: "Pharmacies",
     img: pharmacyImg,
     icon: Pill,
+    logo: pharmaciesLogo,
     blurb: "24-hour pharmacy services with dispensing, OTC support and expert medication guidance available around the clock.",
     items: ["24/7 dispensing", "OTC medications", "Prescription support", "Medication counselling", "Health supplements"],
   },
@@ -58,6 +67,7 @@ const groups = [
     title: "Radiology",
     img: radiologyImg,
     icon: Scan,
+    logo: radiologyLogo,
     blurb: "State-of-the-art diagnostic imaging including X-ray, ultrasound and CT with rapid turnaround and specialist reporting.",
     items: ["X-ray imaging", "Ultrasound", "CT scanning", "Rapid reporting", "Specialist referrals"],
   },
@@ -89,12 +99,27 @@ function Services() {
                 </div>
               </div>
               <div className="md:col-span-7 flex flex-col justify-center">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">0{i + 1} — Service</span>
-                </div>
+                {g.logo ? (
+                  <div className="flex items-center gap-4">
+                    <div className="inline-flex items-center justify-center rounded-xl bg-white ring-1 ring-border px-3 py-2 shadow-sm">
+                      <img
+                        src={g.logo}
+                        alt={`${g.title} logo`}
+                        className="h-10 w-auto object-contain"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">0{i + 1} — Service</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">0{i + 1} — Service</span>
+                  </div>
+                )}
                 <h2 className="mt-4 font-display text-3xl md:text-4xl">{g.title}</h2>
                 <p className="mt-4 text-muted-foreground max-w-xl">{g.blurb}</p>
                 <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-2 max-w-md">
