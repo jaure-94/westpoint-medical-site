@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { TeamMemberCard, type TeamMember } from "@/components/site/TeamMemberCard";
+import teamGroup from "@/assets/clinic/team.jpg";
 import keith from "@/assets/team/keith-ndlovu.jpeg";
 import essabelle from "@/assets/team/essabelle-rushwaya.jpeg";
 import isabella from "@/assets/team/isabella-chaniwa.jpeg";
