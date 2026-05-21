@@ -49,12 +49,6 @@ const groups = [
   },
 ];
 
-const extras = [
-  { icon: Pill, title: "24-Hour Pharmacy", body: "Dispense, OTC and prescription support — any hour of the day or night." },
-  { icon: Microscope, title: "On-site Diagnostics", body: "Rapid testing for the most common acute and chronic conditions." },
-  { icon: Syringe, title: "Vaccinations", body: "Routine, paediatric and travel vaccinations administered on schedule." },
-  { icon: Baby, title: "Family & Paediatric", body: "Care designed for the whole family, with extra patience for the smallest visitors." },
-];
 
 function Services() {
   return (
