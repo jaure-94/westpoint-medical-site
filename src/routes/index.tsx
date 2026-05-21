@@ -14,7 +14,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { motion, useScroll, useTransform, type Variants } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import exteriorDay from "@/assets/clinic/exterior-day.jpg";
 import exteriorWide from "@/assets/clinic/exterior-wide.jpg";
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/")({
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const fadeUp: Variants = {
-  hidden: { opacity: 1, y: 28 },
+  hidden: { opacity: 0, y: 28 },
   show: (i: number = 0) => ({
     opacity: 1,
     y: 0,
@@ -57,7 +57,7 @@ const stagger: Variants = {
 };
 
 const rotatingWords = ["Heal.", "Restore.", "Thrive."];
-const revealViewport = { once: true, amount: 0, margin: "0px 0px 200px 0px" } as const;
+const revealViewport = { once: true, amount: 0.2 } as const;
 
 function Home() {
   return (
@@ -75,14 +75,10 @@ function Home() {
 
 /* ────────────────────────────────────────────────────────── HERO ── */
 function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.55, 0.85]);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 720], ["0%", "18%"]);
+  const scale = useTransform(scrollY, [0, 720], [1, 1.08]);
+  const overlayOpacity = useTransform(scrollY, [0, 720], [0.55, 0.85]);
 
   const [wordIndex, setWordIndex] = useState(0);
   useEffect(() => {
@@ -92,10 +88,7 @@ function Hero() {
 
   return (
     <section className="relative w-full">
-      <div
-        ref={ref}
-        className="relative w-full overflow-hidden bg-ink text-cream min-h-[100svh] flex flex-col"
-      >
+      <div className="relative w-full overflow-hidden bg-ink text-cream min-h-[100svh] flex flex-col">
         {/* Parallax background image */}
         <motion.div style={{ y, scale }} className="absolute inset-0 -z-0">
           <img
@@ -254,7 +247,8 @@ function Pillars() {
     <section className="bg-cream">
       <motion.div
         initial="hidden"
-        animate="show"
+        whileInView="show"
+        viewport={revealViewport}
         variants={stagger}
         className="mx-auto max-w-7xl px-6 py-24 md:py-32 grid md:grid-cols-3 gap-12"
       >
@@ -352,13 +346,6 @@ function Services() {
 
 /* ────────────────────────────────────────────────────── STORY ── */
 function Story() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
-
   const bullets = [
     "Modern, internationally-benchmarked equipment",
     "Sterilisation and protocols you can rely on",
@@ -367,24 +354,27 @@ function Story() {
   ];
 
   return (
-    <section ref={ref} className="relative bg-background overflow-hidden">
+    <section className="relative bg-background overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-36 grid lg:grid-cols-2 gap-16 items-center">
         {/* Image side */}
         <motion.div
-          initial={{ opacity: 1, x: -24 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -24, y: 24 }}
+          whileInView={{ opacity: 1, x: 0, y: 0 }}
           viewport={revealViewport}
           transition={{ duration: 1, ease }}
           className="relative"
         >
           <div className="relative overflow-hidden rounded-3xl shadow-soft">
             <motion.img
-              style={{ y }}
               src={exteriorWide}
               alt="WestPoint exterior"
               loading="lazy"
               decoding="async"
               fetchPriority="low"
+              initial={{ scale: 1.08 }}
+              whileInView={{ scale: 1 }}
+              viewport={revealViewport}
+              transition={{ duration: 1.2, ease }}
               className="h-[28rem] md:h-[34rem] w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
