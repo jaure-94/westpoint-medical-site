@@ -157,9 +157,6 @@ function About() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-24">
-        <img src={team} alt="The WestPoint Medical team" className="w-full aspect-[21/9] object-cover rounded-3xl" />
-      </section>
     </Layout>
   );
 }
