@@ -105,10 +105,10 @@ function Services() {
                       <img
                         src={g.logo}
                         alt={`${g.title} logo`}
-                        className="h-10 w-auto object-contain"
-                        loading="lazy"
-                        decoding="async"
-                      />
+                      className="h-14 md:h-16 w-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     </div>
                     <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">0{i + 1} — Service</span>
                   </div>
