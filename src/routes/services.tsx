@@ -99,12 +99,27 @@ function Services() {
                 </div>
               </div>
               <div className="md:col-span-7 flex flex-col justify-center">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">0{i + 1} — Service</span>
-                </div>
+                {g.logo ? (
+                  <div className="flex items-center gap-4">
+                    <div className="inline-flex items-center justify-center rounded-xl bg-white ring-1 ring-border px-3 py-2 shadow-sm">
+                      <img
+                        src={g.logo}
+                        alt={`${g.title} logo`}
+                        className="h-10 w-auto object-contain"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">0{i + 1} — Service</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">0{i + 1} — Service</span>
+                  </div>
+                )}
                 <h2 className="mt-4 font-display text-3xl md:text-4xl">{g.title}</h2>
                 <p className="mt-4 text-muted-foreground max-w-xl">{g.blurb}</p>
                 <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-2 max-w-md">
