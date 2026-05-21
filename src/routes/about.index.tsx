@@ -4,7 +4,32 @@ import wall from "@/assets/clinic/health-wellness-wall.jpg";
 import exterior from "@/assets/clinic/exterior-wide.jpg";
 import consult from "@/assets/clinic/consultation.jpg";
 import team from "@/assets/clinic/team.jpg";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Heart,
+  Award,
+  ShieldCheck,
+  Lightbulb,
+  Globe2,
+  UserRound,
+  Users,
+  Sprout,
+  HandHeart,
+  HeartHandshake,
+} from "lucide-react";
+
+const values = [
+  { n: "01", t: "Compassion", d: "We treat every patient with kindness, empathy, dignity and respect.", Icon: Heart },
+  { n: "02", t: "Excellence", d: "We pursue the highest standards in healthcare, service delivery and professionalism.", Icon: Award },
+  { n: "03", t: "Integrity", d: "We act with honesty, transparency, accountability and ethical responsibility at all times.", Icon: ShieldCheck },
+  { n: "04", t: "Innovation", d: "We embrace modern medicine, technology and creative solutions to improve patient care.", Icon: Lightbulb },
+  { n: "05", t: "Accessibility", d: "We believe quality healthcare should be available, affordable and reachable for every community.", Icon: Globe2 },
+  { n: "06", t: "Patient-Centered Care", d: "Every decision we make prioritizes the comfort, safety and wellbeing of our patients.", Icon: UserRound },
+  { n: "07", t: "Teamwork", d: "We collaborate across departments, professions and communities to achieve better outcomes together.", Icon: Users },
+  { n: "08", t: "Growth", d: "We are committed to continuous learning, expansion and improving lives across Zimbabwe.", Icon: Sprout },
+  { n: "09", t: "Respect", d: "We value every individual — patients, staff, partners and communities alike.", Icon: HandHeart },
+  { n: "10", t: "Community Impact", d: "We aim to uplift and strengthen the communities we serve through trusted healthcare partnerships.", Icon: HeartHandshake },
+];
 
 export const Route = createFileRoute("/about/")({
   head: () => ({
