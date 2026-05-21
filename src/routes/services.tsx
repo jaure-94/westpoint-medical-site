@@ -101,7 +101,7 @@ function Services() {
               <div className="md:col-span-7 flex flex-col justify-center">
                 {g.logo ? (
                   <div className="flex items-center gap-4">
-                    <div className="inline-flex items-center justify-center rounded-xl bg-white ring-1 ring-border px-3 py-2 shadow-sm">
+                    <div className="inline-flex items-center justify-center rounded-xl bg-white ring-1 ring-border px-4 py-3 shadow-sm">
                       <img
                         src={g.logo}
                         alt={`${g.title} logo`}
