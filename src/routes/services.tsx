@@ -7,6 +7,11 @@ import aesthetics from "@/assets/clinic/aesthetics.jpg";
 import resus from "@/assets/clinic/resuscitation.jpg";
 import pharmacyImg from "@/assets/clinic/pharmacy.jpg";
 import radiologyImg from "@/assets/clinic/radiology.jpg";
+import dentalLogo from "@/assets/clinic/logos/dental.png";
+import wellnessLogo from "@/assets/clinic/logos/wellness.png";
+import emergencyLogo from "@/assets/clinic/logos/emergency.png";
+import pharmaciesLogo from "@/assets/clinic/logos/pharmacies.png";
+import radiologyLogo from "@/assets/clinic/logos/radiology.png";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
