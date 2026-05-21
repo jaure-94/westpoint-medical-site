@@ -96,20 +96,6 @@ function Services() {
         })}
       </section>
 
-      <section className="border-y border-border bg-cream">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <h2 className="font-display text-3xl md:text-4xl max-w-xl">And the supporting cast.</h2>
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {extras.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="rounded-2xl bg-background p-6 border border-border">
-                <Icon className="h-5 w-5 text-primary" />
-                <div className="mt-4 font-display text-xl">{title}</div>
-                <p className="mt-2 text-sm text-muted-foreground">{body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="mx-auto max-w-7xl px-6 py-24 text-center">
         <h2 className="font-display text-4xl md:text-5xl max-w-2xl mx-auto">Not sure what you need?</h2>
