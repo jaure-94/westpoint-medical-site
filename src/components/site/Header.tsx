@@ -23,7 +23,30 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center"><Logo /></Link>
         <nav className="hidden md:flex items-center gap-1">
-          {nav.map((n) => (
+          <Link
+            to="/"
+            className="group relative px-4 py-2 text-sm text-foreground/70 transition-colors duration-300 hover:text-foreground"
+            activeProps={{ className: "group relative px-4 py-2 text-sm text-primary font-medium" }}
+            activeOptions={{ exact: true }}
+          >
+            Home
+            <span className="pointer-events-none absolute left-4 right-4 -bottom-0.5 h-px origin-left scale-x-0 bg-primary transition-transform duration-300 ease-out group-hover:scale-x-100" />
+          </Link>
+
+          <div className="group relative">
+            <Link
+              to="/about"
+              className="relative inline-flex items-center gap-1 px-4 py-2 text-sm text-foreground/70 transition-colors duration-300 hover:text-foreground"
+              activeProps={{ className: "relative inline-flex items-center gap-1 px-4 py-2 text-sm text-primary font-medium" }}
+            >
+              About
+              <ChevronDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180" />
+              <span className="pointer-events-none absolute left-4 right-7 -bottom-0.5 h-px origin-left scale-x-0 bg-primary transition-transform duration-300 ease-out group-hover:scale-x-100" />
+            </Link>
+            <SubMenuNavbar items={aboutSubMenu} />
+          </div>
+
+          {nav.slice(1).map((n) => (
             <Link
               key={n.to}
               to={n.to}
