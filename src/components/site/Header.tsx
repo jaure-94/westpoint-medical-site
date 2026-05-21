@@ -71,7 +71,26 @@ export function Header() {
       {open && (
         <div className="md:hidden border-t border-border bg-background">
           <div className="flex flex-col p-4 gap-1">
-            {nav.map((n) => (
+            <Link to="/" onClick={() => setOpen(false)} className="px-4 py-3 rounded-lg hover:bg-muted">
+              Home
+            </Link>
+            <button
+              onClick={() => setAboutOpen((v) => !v)}
+              className="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-muted text-left"
+            >
+              About
+              <ChevronDown className={`h-4 w-4 transition-transform ${aboutOpen ? "rotate-180" : ""}`} />
+            </button>
+            {aboutOpen && (
+              <div className="ml-3 flex flex-col gap-1 border-l border-border pl-3">
+                {aboutSubMenu.map((s) => (
+                  <Link key={s.to} to={s.to} onClick={() => setOpen(false)} className="px-4 py-2 rounded-lg text-sm text-foreground/80 hover:bg-muted">
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+            {nav.slice(1).map((n) => (
               <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="px-4 py-3 rounded-lg hover:bg-muted">
                 {n.label}
               </Link>
