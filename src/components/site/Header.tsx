@@ -1,17 +1,23 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { ChevronDown, Menu, X, Phone } from "lucide-react";
 import { Logo } from "./Logo";
+import { SubMenuNavbar, type SubMenuItem } from "./SubMenuNavbar";
+
+const aboutSubMenu: readonly SubMenuItem[] = [
+  { to: "/about", label: "Our Practice", description: "The clinic, our story and values" },
+  { to: "/about/team", label: "Meet Our Team", description: "The people behind your care" },
+];
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
