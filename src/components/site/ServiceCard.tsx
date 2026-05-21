@@ -1,7 +1,6 @@
-import { useEffect, useRef, type ComponentType } from "react";
+import { type ComponentType } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import gsap from "gsap";
 
 interface ServiceCardProps {
   icon: ComponentType<{ className?: string }>;
@@ -12,39 +11,8 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ icon: Icon, title, img, tag, blurb }: ServiceCardProps) {
-  const rootRef = useRef<HTMLDivElement>(null);
-  const overlayRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const tlRef = useRef<gsap.core.Timeline | null>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.set(overlayRef.current, { yPercent: 100 });
-      gsap.set(contentRef.current?.children ?? [], { yPercent: 40, opacity: 0 });
-
-      const tl = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
-      tl.to(overlayRef.current, { yPercent: 0, duration: 0.7 })
-        .to(
-          contentRef.current?.children ?? [],
-          { yPercent: 0, opacity: 1, duration: 0.5, stagger: 0.08 },
-          "-=0.35",
-        );
-      tlRef.current = tl;
-    }, rootRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  const handleEnter = () => tlRef.current?.timeScale(1).play();
-  const handleLeave = () => tlRef.current?.timeScale(1.4).reverse();
-
   return (
     <div
-      ref={rootRef}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-      onFocus={handleEnter}
-      onBlur={handleLeave}
       className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:shadow-soft transition-shadow"
     >
       <div className="aspect-[4/5] overflow-hidden relative">
@@ -59,10 +27,9 @@ export function ServiceCard({ icon: Icon, title, img, tag, blurb }: ServiceCardP
 
         {/* Swipe-up reveal overlay */}
         <div
-          ref={overlayRef}
-          className="absolute inset-0 bg-primary text-primary-foreground flex flex-col justify-end p-6 will-change-transform"
+          className="absolute inset-0 flex translate-y-full flex-col justify-end bg-primary p-6 text-primary-foreground transition-transform duration-500 ease-out will-change-transform group-hover:translate-y-0"
         >
-          <div ref={contentRef} className="space-y-4">
+          <div className="space-y-4 opacity-100 transition-opacity duration-300">
             <Icon className="h-6 w-6" />
             <h3 className="font-display text-2xl leading-tight">{title}</h3>
             <p className="text-sm text-primary-foreground/85 leading-relaxed">{blurb}</p>
