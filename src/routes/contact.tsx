@@ -208,7 +208,7 @@ function Field({ label, name, type = "text", required }: { label: string; name: 
       <label htmlFor={name} className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{label}</label>
       <input
         id={name} name={name} type={type} required={required}
-        className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+        className="mt-2 w-full min-h-[44px] rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
       />
     </div>
   );
