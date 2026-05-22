@@ -125,19 +125,19 @@ function Hero() {
         </div>
 
         {/* Bottom meta strip */}
-        <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-wrap items-center justify-between gap-6 border-t border-cream/10 px-6 py-6 text-cream/70 md:px-12 lg:px-16">
-          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em]">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-wrap items-center justify-between gap-4 border-t border-cream/10 px-5 sm:px-6 py-6 text-cream/70 md:px-12 lg:px-16">
+          <div className="hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.28em]">
             <span className="inline-block h-px w-8 bg-cream/30" />
             Scroll to explore
           </div>
-          <dl className="flex items-center gap-8 md:gap-12">
+          <dl className="flex w-full items-center justify-between gap-4 sm:w-auto sm:gap-8 md:gap-12">
             {[
               { k: "24/7", v: "Emergency" },
               { k: "4+", v: "Specialties" },
               { k: "1k+", v: "Patients" },
             ].map((s) => (
               <div key={s.v}>
-                <dt className="font-display text-2xl md:text-3xl text-cream">{s.k}</dt>
+                <dt className="font-display text-xl sm:text-2xl md:text-3xl text-cream">{s.k}</dt>
                 <dd className="text-[10px] uppercase tracking-[0.22em] text-cream/50">{s.v}</dd>
               </div>
             ))}
