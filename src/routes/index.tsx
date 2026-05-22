@@ -368,17 +368,17 @@ function Values() {
       </div>
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-[0.05]" />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
-        <div className="mb-14 max-w-2xl">
+      <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32 lg:px-16">
+        <div className="mb-10 max-w-2xl sm:mb-14">
           <div className="text-xs uppercase tracking-[0.25em] text-primary-glow">
             Our promise
           </div>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl leading-[1.05]">
+          <h2 className="mt-3 font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl">
             Four things you can <span className="italic text-primary-glow">always</span> expect.
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
           {items.map(({ icon: Icon, title, body }) => (
             <div
               key={title}
