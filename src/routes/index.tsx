@@ -162,9 +162,9 @@ function Marquee() {
   ];
   return (
     <div className="overflow-hidden border-y border-border bg-background py-6">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 text-center font-display text-xl text-foreground/70 md:text-2xl">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-5 gap-y-3 px-5 text-center font-display text-lg text-foreground/70 sm:gap-x-8 sm:px-6 sm:text-xl md:text-2xl">
         {items.map((it) => (
-          <span key={it} className="flex items-center gap-4">
+          <span key={it} className="flex items-center gap-3 sm:gap-4">
             {it}
             <span className="h-1.5 w-1.5 rounded-full bg-primary-glow" />
           </span>
