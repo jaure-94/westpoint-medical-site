@@ -79,7 +79,7 @@ function Hero() {
         </div>
 
         {/* Main copy */}
-        <div className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 px-6 md:px-12 lg:px-16 pt-16 md:pt-24 pb-12">
+        <div className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 px-5 sm:px-6 md:px-12 lg:px-16 pt-12 sm:pt-16 md:pt-24 pb-12">
           <div className="max-w-4xl">
             <div
               className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 backdrop-blur px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-cream/75"
@@ -89,7 +89,7 @@ function Hero() {
             </div>
 
             <h1
-              className="mt-8 font-display font-medium text-[3rem] leading-[0.98] tracking-tight sm:text-[4.5rem] lg:text-[6.25rem]"
+              className="mt-6 sm:mt-8 font-display font-medium text-[2.5rem] leading-[0.98] tracking-tight sm:text-[4.5rem] lg:text-[6.25rem]"
             >
               A new standard
               <br />
@@ -97,23 +97,23 @@ function Hero() {
             </h1>
 
             <p
-              className="mt-8 max-w-xl text-base leading-relaxed text-cream/80 md:text-lg"
+              className="mt-6 sm:mt-8 max-w-xl text-base leading-relaxed text-cream/80 md:text-lg"
             >
               Personalised medical and wellness care designed to restore your strength,
               vitality and confidence — under one calm, considered roof, around the clock.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-primary-glow px-7 py-3.5 text-sm font-medium text-ink"
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary-glow px-7 py-3.5 text-sm font-medium text-ink"
               >
                 Book a visit
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
               <a
                 href="tel:+263780969577"
-                className="inline-flex items-center gap-3 rounded-full border border-cream/20 px-5 py-3 text-cream backdrop-blur"
+                className="inline-flex min-h-[44px] items-center justify-center gap-3 rounded-full border border-cream/20 px-5 py-3 text-cream backdrop-blur"
               >
                 <span className="grid h-8 w-8 place-items-center rounded-full bg-cream/10">
                   <Phone className="h-3.5 w-3.5" />
