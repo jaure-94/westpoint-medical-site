@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion, type Variants } from "motion/react";
 import { Layout } from "@/components/site/Layout";
 import { ServiceCard } from "@/components/site/ServiceCard";
+import { useIsMobile } from "@/hooks/use-mobile";
 import {
   ArrowUpRight,
   Heart,
@@ -37,6 +39,20 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+/* ───────────────────────────────────── Motion helpers ── */
+const SPRING = { type: "spring", stiffness: 100, damping: 20 } as const;
+const VIEWPORT = { once: true, margin: "-100px 0px" } as const;
+
+function useMotionDistance() {
+  const isMobile = useIsMobile();
+  return isMobile ? 15 : 30;
+}
+
+function useHeroDistance() {
+  const isMobile = useIsMobile();
+  return isMobile ? 10 : 20;
+}
+
 function Home() {
   return (
     <Layout>
@@ -53,6 +69,17 @@ function Home() {
 
 /* ────────────────────────────────────────────────────────── HERO ── */
 function Hero() {
+  const y = useHeroDistance();
+
+  const container: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+  };
+  const item: Variants = {
+    hidden: { opacity: 0, y },
+    show: { opacity: 1, y: 0, transition: SPRING },
+  };
+
   return (
     <section className="relative w-full">
       <div className="relative w-full overflow-hidden bg-ink text-cream min-h-[100svh] flex flex-col">
@@ -79,31 +106,42 @@ function Hero() {
         </div>
 
         {/* Main copy */}
-        <div className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 px-5 sm:px-6 md:px-12 lg:px-16 pt-12 sm:pt-16 md:pt-24 pb-12">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 px-5 sm:px-6 md:px-12 lg:px-16 pt-12 sm:pt-16 md:pt-24 pb-12"
+        >
           <div className="max-w-4xl">
-            <div
+            <motion.div
+              variants={item}
               className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 backdrop-blur px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-cream/75"
             >
               <span className="inline-flex h-1.5 w-1.5 rounded-full bg-primary-glow" />
               Now open · Doors never close
-            </div>
+            </motion.div>
 
-            <h1
+            <motion.h1
+              variants={item}
               className="mt-6 sm:mt-8 font-display font-medium text-[2.5rem] leading-[0.98] tracking-tight sm:text-[4.5rem] lg:text-[6.25rem]"
             >
               A new standard
               <br />
               of <span className="text-primary-glow font-display font-bold">care.</span>
-            </h1>
+            </motion.h1>
 
-            <p
+            <motion.p
+              variants={item}
               className="mt-6 sm:mt-8 max-w-xl text-base leading-relaxed text-cream/80 md:text-lg"
             >
               Personalised medical and wellness care designed to restore your strength,
               vitality and confidence — under one calm, considered roof, around the clock.
-            </p>
+            </motion.p>
 
-            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4">
+            <motion.div
+              variants={item}
+              className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4"
+            >
               <Link
                 to="/contact"
                 className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary-glow px-7 py-3.5 text-sm font-medium text-ink"
@@ -120,9 +158,9 @@ function Hero() {
                 </span>
                 <span className="text-sm font-medium tracking-wide">+263 780 969 577</span>
               </a>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Bottom meta strip */}
         <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-wrap items-center justify-between gap-4 border-t border-cream/10 px-5 sm:px-6 py-6 text-cream/70 md:px-12 lg:px-16">
@@ -176,6 +214,7 @@ function Marquee() {
 
 /* ────────────────────────────────────────────────────── PILLARS ── */
 function Pillars() {
+  const y = useMotionDistance();
   const pillars = [
     { word: "Health", desc: "Acute and preventative medicine, delivered with patience and precision." },
     { word: "Wellness", desc: "Aesthetics, longevity programs and daily habits that compound." },
@@ -183,9 +222,22 @@ function Pillars() {
   ];
   return (
     <section className="bg-cream">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:gap-12 sm:px-6 sm:py-24 md:grid-cols-3 md:px-8 md:py-32 lg:px-16">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={VIEWPORT}
+        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
+        className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:gap-12 sm:px-6 sm:py-24 md:grid-cols-3 md:px-8 md:py-32 lg:px-16"
+      >
         {pillars.map((p, i) => (
-          <div key={p.word} className="group">
+          <motion.div
+            key={p.word}
+            variants={{
+              hidden: { opacity: 0, y },
+              show: { opacity: 1, y: 0, transition: SPRING },
+            }}
+            className="group"
+          >
             <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
               0{i + 1}
             </div>
@@ -195,15 +247,16 @@ function Pillars() {
             </div>
             <p className="mt-5 text-muted-foreground max-w-xs leading-relaxed">{p.desc}</p>
             <div className="mt-6 h-px w-16 bg-primary" />
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
 
 /* ────────────────────────────────────────────────────── SERVICES ── */
 function Services() {
+  const y = useMotionDistance();
   const items = [
     {
       icon: Stethoscope,
@@ -236,7 +289,13 @@ function Services() {
   ];
   return (
     <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32 lg:px-16">
-      <div className="mb-10 flex flex-wrap items-end justify-between gap-6 sm:mb-14">
+      <motion.div
+        initial={{ opacity: 0, y }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={VIEWPORT}
+        transition={SPRING}
+        className="mb-10 flex flex-wrap items-end justify-between gap-6 sm:mb-14"
+      >
         <div>
           <div className="text-xs uppercase tracking-[0.25em] text-primary">Our care</div>
           <h2 className="mt-3 font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl max-w-2xl">
@@ -251,21 +310,34 @@ function Services() {
             All services <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={VIEWPORT}
+        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+        className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+      >
         {items.map((item) => (
-          <div key={item.title}>
+          <motion.div
+            key={item.title}
+            variants={{
+              hidden: { opacity: 0, y },
+              show: { opacity: 1, y: 0, transition: SPRING },
+            }}
+          >
             <ServiceCard {...item} />
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
 
 /* ────────────────────────────────────────────────────── STORY ── */
 function Story() {
+  const y = useMotionDistance();
   const bullets = [
     "Modern, internationally-benchmarked equipment",
     "Sterilisation and protocols you can rely on",
@@ -276,7 +348,13 @@ function Story() {
   return (
     <section className="relative bg-background overflow-hidden">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32 lg:grid-cols-2 lg:gap-16 lg:px-16 lg:py-36">
-        <div className="relative">
+        <motion.div
+          initial={{ opacity: 0, y }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={VIEWPORT}
+          transition={SPRING}
+          className="relative"
+        >
           <div className="relative overflow-hidden rounded-3xl shadow-soft">
             <img
               src={exteriorWide}
@@ -292,38 +370,62 @@ function Story() {
             <span className="h-1.5 w-1.5 rounded-full bg-primary-glow" />
             Built for you
           </div>
-        </div>
+        </motion.div>
 
-        <div>
-          <div className="text-xs uppercase tracking-[0.25em] text-primary">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={VIEWPORT}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } } }}
+        >
+          <motion.div
+            variants={{ hidden: { opacity: 0, y }, show: { opacity: 1, y: 0, transition: SPRING } }}
+            className="text-xs uppercase tracking-[0.25em] text-primary"
+          >
             Why WestPoint
-          </div>
-          <h2 className="mt-4 font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl">
+          </motion.div>
+          <motion.h2
+            variants={{ hidden: { opacity: 0, y }, show: { opacity: 1, y: 0, transition: SPRING } }}
+            className="mt-4 font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl"
+          >
             A quieter kind of care, <span className="italic text-primary">held to a higher bar.</span>
-          </h2>
-          <p className="mt-6 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
+          </motion.h2>
+          <motion.p
+            variants={{ hidden: { opacity: 0, y }, show: { opacity: 1, y: 0, transition: SPRING } }}
+            className="mt-6 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground"
+          >
             We invested in the building so we could invest more attention in you. Every
             finish, every room, every protocol — chosen with intention.
-          </p>
+          </motion.p>
 
-          <ul className="mt-8 space-y-3">
+          <motion.ul
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
+            className="mt-8 space-y-3"
+          >
             {bullets.map((b) => (
-              <li key={b} className="flex items-start gap-3">
+              <motion.li
+                key={b}
+                variants={{ hidden: { opacity: 0, y }, show: { opacity: 1, y: 0, transition: SPRING } }}
+                className="flex items-start gap-3"
+              >
                 <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-foreground/85">{b}</span>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
 
-          <div className="mt-10">
+          <motion.div
+            variants={{ hidden: { opacity: 0, y }, show: { opacity: 1, y: 0, transition: SPRING } }}
+            className="mt-10"
+          >
             <Link
               to="/about"
               className="inline-flex min-h-[44px] items-center gap-2 text-sm font-medium text-foreground hover:text-primary"
             >
               Read our story <ArrowUpRight className="h-4 w-4" />
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
@@ -331,6 +433,7 @@ function Story() {
 
 /* ────────────────────────────────────────────────────── VALUES ── */
 function Values() {
+  const y = useMotionDistance();
   const items = [
     {
       icon: Clock,
@@ -369,27 +472,43 @@ function Values() {
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-[0.05]" />
 
       <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32 lg:px-16">
-        <div className="mb-10 max-w-2xl sm:mb-14">
+        <motion.div
+          initial={{ opacity: 0, y }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={VIEWPORT}
+          transition={SPRING}
+          className="mb-10 max-w-2xl sm:mb-14"
+        >
           <div className="text-xs uppercase tracking-[0.25em] text-primary-glow">
             Our promise
           </div>
           <h2 className="mt-3 font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl">
             Four things you can <span className="italic text-primary-glow">always</span> expect.
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={VIEWPORT}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+          className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4"
+        >
           {items.map(({ icon: Icon, title, body }) => (
-            <div
+            <motion.div
               key={title}
+              variants={{
+                hidden: { opacity: 0, y },
+                show: { opacity: 1, y: 0, transition: SPRING },
+              }}
               className="rounded-2xl border border-cream/10 bg-cream/5 backdrop-blur p-6"
             >
               <Icon className="h-6 w-6 text-primary-glow" />
               <div className="mt-5 font-display text-xl">{title}</div>
               <p className="mt-3 text-sm text-cream/70 leading-relaxed">{body}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -397,20 +516,39 @@ function Values() {
 
 /* ────────────────────────────────────────────────────── CTA ── */
 function CtaBlock() {
+  const y = useMotionDistance();
   return (
     <section className="bg-background">
-      <div className="mx-auto max-w-5xl px-5 py-20 text-center sm:px-6 sm:py-24 md:py-32">
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-cream px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={VIEWPORT}
+        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+        className="mx-auto max-w-5xl px-5 py-20 text-center sm:px-6 sm:py-24 md:py-32"
+      >
+        <motion.div
+          variants={{ hidden: { opacity: 0, y }, show: { opacity: 1, y: 0, transition: SPRING } }}
+          className="inline-flex items-center gap-2 rounded-full border border-border bg-cream px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-muted-foreground"
+        >
           <span className="h-1.5 w-1.5 rounded-full bg-primary-glow" />
           Ready when you are
-        </div>
-        <h2 className="mx-auto mt-6 max-w-3xl font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl">
+        </motion.div>
+        <motion.h2
+          variants={{ hidden: { opacity: 0, y }, show: { opacity: 1, y: 0, transition: SPRING } }}
+          className="mx-auto mt-6 max-w-3xl font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl"
+        >
           Care, the way it should have <span className="italic text-primary">always felt.</span>
-        </h2>
-        <p className="mx-auto mt-6 max-w-xl text-base sm:text-lg text-muted-foreground">
+        </motion.h2>
+        <motion.p
+          variants={{ hidden: { opacity: 0, y }, show: { opacity: 1, y: 0, transition: SPRING } }}
+          className="mx-auto mt-6 max-w-xl text-base sm:text-lg text-muted-foreground"
+        >
           Walk in, call, or book online. We&apos;ll take it from there.
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3">
+        </motion.p>
+        <motion.div
+          variants={{ hidden: { opacity: 0, y }, show: { opacity: 1, y: 0, transition: SPRING } }}
+          className="mt-10 flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3"
+        >
           <Link
             to="/contact"
             className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground shadow-glow hover:bg-primary/90"
@@ -423,8 +561,8 @@ function CtaBlock() {
           >
             Call +263 780 969 577
           </a>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
