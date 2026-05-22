@@ -134,11 +134,29 @@
     animation-delay: 0.24s;
   }
 
+  @keyframes reveal-up {
+    from { opacity: 0; transform: translate3d(0, 24px, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+  /* Default: visible. If JS never runs, content always shows. */
+  .reveal { opacity: 1; transform: none; }
+  /* After mount, before entering view: hide for the entrance. */
+  .reveal-pending { opacity: 0; transform: translate3d(0, 24px, 0); }
+  @media (max-width: 767px) {
+    .reveal-pending { transform: translate3d(0, 12px, 0); }
+  }
+  .reveal-in {
+    animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    will-change: transform, opacity;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-load-in,
     .hero-load-in-delay-1,
     .hero-load-in-delay-2,
-    .hero-load-in-delay-3 {
+    .hero-load-in-delay-3,
+    .reveal-pending,
+    .reveal-in {
       animation: none;
       opacity: 1;
       transform: none;
