@@ -275,7 +275,7 @@ function Story() {
 
   return (
     <section className="relative bg-background overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:py-36 grid lg:grid-cols-2 gap-16 items-center">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32 lg:grid-cols-2 lg:gap-16 lg:px-16 lg:py-36">
         <div className="relative">
           <div className="relative overflow-hidden rounded-3xl shadow-soft">
             <img
@@ -284,7 +284,7 @@ function Story() {
               loading="lazy"
               decoding="async"
               fetchPriority="low"
-              className="h-[28rem] md:h-[34rem] w-full object-cover"
+              className="aspect-[4/5] sm:aspect-[4/3] lg:aspect-auto lg:h-[34rem] w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
           </div>
@@ -298,10 +298,10 @@ function Story() {
           <div className="text-xs uppercase tracking-[0.25em] text-primary">
             Why WestPoint
           </div>
-          <h2 className="mt-4 font-display text-4xl leading-[1.05] md:text-5xl">
+          <h2 className="mt-4 font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl">
             A quieter kind of care, <span className="italic text-primary">held to a higher bar.</span>
           </h2>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
             We invested in the building so we could invest more attention in you. Every
             finish, every room, every protocol — chosen with intention.
           </p>
@@ -318,7 +318,7 @@ function Story() {
           <div className="mt-10">
             <Link
               to="/about"
-              className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary"
+              className="inline-flex min-h-[44px] items-center gap-2 text-sm font-medium text-foreground hover:text-primary"
             >
               Read our story <ArrowUpRight className="h-4 w-4" />
             </Link>
