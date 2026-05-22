@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
+import { Reveal } from "@/components/site/Reveal";
 import { TeamMemberCard, type TeamMember } from "@/components/site/TeamMemberCard";
 import teamGroup from "@/assets/clinic/team.jpg";
 import keith from "@/assets/team/keith-ndlovu.jpeg";
@@ -69,59 +70,62 @@ function Team() {
         </div>
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-28 text-cream">
-          <div className="text-[10px] sm:text-xs uppercase tracking-[0.28em] text-primary-glow">Our people</div>
-          <h1 className="mt-4 sm:mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl leading-[0.95]">
+          <div className="text-[10px] sm:text-xs uppercase tracking-[0.28em] text-primary-glow hero-load-in">
+            Our people
+          </div>
+          <h1 className="mt-4 sm:mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl leading-[0.95] hero-load-in hero-load-in-delay-1">
             Meet our <span className="italic text-gradient-green">team</span>.
           </h1>
-          <p className="mt-5 sm:mt-6 max-w-2xl text-sm sm:text-base md:text-lg text-cream/80">
+          <p className="mt-5 sm:mt-6 max-w-2xl text-sm sm:text-base md:text-lg text-cream/80 hero-load-in hero-load-in-delay-2">
             The clinicians, dentists, nurses and care professionals who make WestPoint feel like home.
           </p>
         </div>
       </section>
 
-
       {/* Founder spotlight */}
       <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16">
         <div className="grid grid-cols-1 items-center gap-8 sm:gap-10 md:grid-cols-12 md:gap-14">
-          <div className="md:col-span-5">
+          <Reveal className="md:col-span-5">
             <div className="relative">
               <div className="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-primary/20 via-primary/5 to-transparent blur-2xl" />
               <div className="overflow-hidden rounded-2xl sm:rounded-3xl ring-1 ring-border/60">
                 <TeamMemberCard member={founder} hideCaption className="aspect-[4/5]" />
               </div>
             </div>
-          </div>
+          </Reveal>
           <div className="md:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-primary">
+            <Reveal delay={80} className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-primary">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               Leadership
-            </div>
-            <h2 className="mt-4 sm:mt-5 font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
+            </Reveal>
+            <Reveal as="h2" delay={160} className="mt-4 sm:mt-5 font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
               {founder.name}
-            </h2>
-            <div className="mt-3 text-sm sm:text-base md:text-lg text-muted-foreground">
+            </Reveal>
+            <Reveal delay={240} className="mt-3 text-sm sm:text-base md:text-lg text-muted-foreground">
               {founder.title}
-            </div>
-            <p className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base text-muted-foreground">
+            </Reveal>
+            <Reveal as="p" delay={320} className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base text-muted-foreground">
               Setting the tone for a modern standard of care — where clinical excellence,
               warmth and quiet confidence meet under one roof.
-            </p>
+            </Reveal>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pb-6 sm:pb-8">
-        <div className="flex items-center gap-3 sm:gap-4">
+        <Reveal className="flex items-center gap-3 sm:gap-4">
           <div className="h-px flex-1 bg-border/70" />
           <div className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground">The team</div>
           <div className="h-px flex-1 bg-border/70" />
-        </div>
+        </Reveal>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pb-20 sm:pb-24">
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-3 xl:grid-cols-4">
-          {team.map((m) => (
-            <TeamMemberCard key={m.name} member={m} />
+          {team.map((m, i) => (
+            <Reveal key={m.name} delay={(i % 4) * 80}>
+              <TeamMemberCard member={m} />
+            </Reveal>
           ))}
         </div>
       </section>
