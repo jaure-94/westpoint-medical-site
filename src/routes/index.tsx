@@ -72,14 +72,14 @@ function Hero() {
         <div className="pointer-events-none absolute -top-40 -right-32 h-[40rem] w-[40rem] rounded-full bg-primary/15 blur-3xl" />
 
         {/* Top brand row */}
-        <div className="relative z-10 mx-auto flex w-full max-w-[1500px] items-center justify-between px-6 pt-8 text-[10px] uppercase tracking-[0.28em] text-cream/60 md:px-12 md:pt-10 lg:px-16">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1500px] items-center justify-between gap-4 px-5 pt-8 text-[9px] uppercase tracking-[0.24em] text-cream/60 sm:px-6 sm:text-[10px] sm:tracking-[0.28em] md:px-12 md:pt-10 lg:px-16">
           <span>Harare · Zimbabwe</span>
           <span className="hidden sm:inline">Est. 2024 · Health · Wellness · Longevity</span>
           <span>24 / 7</span>
         </div>
 
         {/* Main copy */}
-        <div className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 px-6 md:px-12 lg:px-16 pt-16 md:pt-24 pb-12">
+        <div className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 px-5 sm:px-6 md:px-12 lg:px-16 pt-12 sm:pt-16 md:pt-24 pb-12">
           <div className="max-w-4xl">
             <div
               className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 backdrop-blur px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-cream/75"
@@ -89,7 +89,7 @@ function Hero() {
             </div>
 
             <h1
-              className="mt-8 font-display font-medium text-[3rem] leading-[0.98] tracking-tight sm:text-[4.5rem] lg:text-[6.25rem]"
+              className="mt-6 sm:mt-8 font-display font-medium text-[2.5rem] leading-[0.98] tracking-tight sm:text-[4.5rem] lg:text-[6.25rem]"
             >
               A new standard
               <br />
@@ -97,23 +97,23 @@ function Hero() {
             </h1>
 
             <p
-              className="mt-8 max-w-xl text-base leading-relaxed text-cream/80 md:text-lg"
+              className="mt-6 sm:mt-8 max-w-xl text-base leading-relaxed text-cream/80 md:text-lg"
             >
               Personalised medical and wellness care designed to restore your strength,
               vitality and confidence — under one calm, considered roof, around the clock.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-primary-glow px-7 py-3.5 text-sm font-medium text-ink"
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary-glow px-7 py-3.5 text-sm font-medium text-ink"
               >
                 Book a visit
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
               <a
                 href="tel:+263780969577"
-                className="inline-flex items-center gap-3 rounded-full border border-cream/20 px-5 py-3 text-cream backdrop-blur"
+                className="inline-flex min-h-[44px] items-center justify-center gap-3 rounded-full border border-cream/20 px-5 py-3 text-cream backdrop-blur"
               >
                 <span className="grid h-8 w-8 place-items-center rounded-full bg-cream/10">
                   <Phone className="h-3.5 w-3.5" />
@@ -125,19 +125,19 @@ function Hero() {
         </div>
 
         {/* Bottom meta strip */}
-        <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-wrap items-center justify-between gap-6 border-t border-cream/10 px-6 py-6 text-cream/70 md:px-12 lg:px-16">
-          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em]">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-wrap items-center justify-between gap-4 border-t border-cream/10 px-5 sm:px-6 py-6 text-cream/70 md:px-12 lg:px-16">
+          <div className="hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.28em]">
             <span className="inline-block h-px w-8 bg-cream/30" />
             Scroll to explore
           </div>
-          <dl className="flex items-center gap-8 md:gap-12">
+          <dl className="flex w-full items-center justify-between gap-4 sm:w-auto sm:gap-8 md:gap-12">
             {[
               { k: "24/7", v: "Emergency" },
               { k: "4+", v: "Specialties" },
               { k: "1k+", v: "Patients" },
             ].map((s) => (
               <div key={s.v}>
-                <dt className="font-display text-2xl md:text-3xl text-cream">{s.k}</dt>
+                <dt className="font-display text-xl sm:text-2xl md:text-3xl text-cream">{s.k}</dt>
                 <dd className="text-[10px] uppercase tracking-[0.22em] text-cream/50">{s.v}</dd>
               </div>
             ))}
@@ -162,9 +162,9 @@ function Marquee() {
   ];
   return (
     <div className="overflow-hidden border-y border-border bg-background py-6">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 text-center font-display text-xl text-foreground/70 md:text-2xl">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-5 gap-y-3 px-5 text-center font-display text-lg text-foreground/70 sm:gap-x-8 sm:px-6 sm:text-xl md:text-2xl">
         {items.map((it) => (
-          <span key={it} className="flex items-center gap-4">
+          <span key={it} className="flex items-center gap-3 sm:gap-4">
             {it}
             <span className="h-1.5 w-1.5 rounded-full bg-primary-glow" />
           </span>
@@ -183,13 +183,13 @@ function Pillars() {
   ];
   return (
     <section className="bg-cream">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-3 md:py-32">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:gap-12 sm:px-6 sm:py-24 md:grid-cols-3 md:px-8 md:py-32 lg:px-16">
         {pillars.map((p, i) => (
           <div key={p.word} className="group">
             <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
               0{i + 1}
             </div>
-            <div className="mt-3 font-display text-4xl md:text-6xl">
+            <div className="mt-3 font-display text-4xl sm:text-5xl md:text-6xl">
               {p.word}
               <span className="text-primary">.</span>
             </div>
@@ -235,25 +235,25 @@ function Services() {
     },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-      <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+    <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32 lg:px-16">
+      <div className="mb-10 flex flex-wrap items-end justify-between gap-6 sm:mb-14">
         <div>
           <div className="text-xs uppercase tracking-[0.25em] text-primary">Our care</div>
-          <h2 className="mt-3 font-display text-4xl md:text-6xl max-w-2xl leading-[1.05]">
+          <h2 className="mt-3 font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl max-w-2xl">
             Everything you need, <span className="italic text-primary">under one roof.</span>
           </h2>
         </div>
         <div>
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 text-sm font-medium hover:text-primary"
+            className="inline-flex min-h-[44px] items-center gap-2 text-sm font-medium hover:text-primary"
           >
             All services <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {items.map((item) => (
           <div key={item.title}>
             <ServiceCard {...item} />
@@ -275,7 +275,7 @@ function Story() {
 
   return (
     <section className="relative bg-background overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:py-36 grid lg:grid-cols-2 gap-16 items-center">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32 lg:grid-cols-2 lg:gap-16 lg:px-16 lg:py-36">
         <div className="relative">
           <div className="relative overflow-hidden rounded-3xl shadow-soft">
             <img
@@ -284,7 +284,7 @@ function Story() {
               loading="lazy"
               decoding="async"
               fetchPriority="low"
-              className="h-[28rem] md:h-[34rem] w-full object-cover"
+              className="aspect-[4/5] sm:aspect-[4/3] lg:aspect-auto lg:h-[34rem] w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
           </div>
@@ -298,10 +298,10 @@ function Story() {
           <div className="text-xs uppercase tracking-[0.25em] text-primary">
             Why WestPoint
           </div>
-          <h2 className="mt-4 font-display text-4xl leading-[1.05] md:text-5xl">
+          <h2 className="mt-4 font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl">
             A quieter kind of care, <span className="italic text-primary">held to a higher bar.</span>
           </h2>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
             We invested in the building so we could invest more attention in you. Every
             finish, every room, every protocol — chosen with intention.
           </p>
@@ -318,7 +318,7 @@ function Story() {
           <div className="mt-10">
             <Link
               to="/about"
-              className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary"
+              className="inline-flex min-h-[44px] items-center gap-2 text-sm font-medium text-foreground hover:text-primary"
             >
               Read our story <ArrowUpRight className="h-4 w-4" />
             </Link>
@@ -368,17 +368,17 @@ function Values() {
       </div>
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-[0.05]" />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
-        <div className="mb-14 max-w-2xl">
+      <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32 lg:px-16">
+        <div className="mb-10 max-w-2xl sm:mb-14">
           <div className="text-xs uppercase tracking-[0.25em] text-primary-glow">
             Our promise
           </div>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl leading-[1.05]">
+          <h2 className="mt-3 font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl">
             Four things you can <span className="italic text-primary-glow">always</span> expect.
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
           {items.map(({ icon: Icon, title, body }) => (
             <div
               key={title}
@@ -399,27 +399,27 @@ function Values() {
 function CtaBlock() {
   return (
     <section className="bg-background">
-      <div className="mx-auto max-w-5xl px-6 py-24 text-center md:py-32">
+      <div className="mx-auto max-w-5xl px-5 py-20 text-center sm:px-6 sm:py-24 md:py-32">
         <div className="inline-flex items-center gap-2 rounded-full border border-border bg-cream px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
           <span className="h-1.5 w-1.5 rounded-full bg-primary-glow" />
           Ready when you are
         </div>
-        <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl leading-[1.02] md:text-6xl">
+        <h2 className="mx-auto mt-6 max-w-3xl font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl">
           Care, the way it should have <span className="italic text-primary">always felt.</span>
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
+        <p className="mx-auto mt-6 max-w-xl text-base sm:text-lg text-muted-foreground">
           Walk in, call, or book online. We&apos;ll take it from there.
         </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
+        <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground shadow-glow hover:bg-primary/90"
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground shadow-glow hover:bg-primary/90"
           >
             Book a visit <ArrowUpRight className="h-4 w-4" />
           </Link>
           <a
             href="tel:+263780969577"
-            className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-medium hover:bg-muted"
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-medium hover:bg-muted"
           >
             Call +263 780 969 577
           </a>
