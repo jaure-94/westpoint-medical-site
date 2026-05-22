@@ -48,10 +48,6 @@ function useMotionDistance() {
   return isMobile ? 15 : 30;
 }
 
-function useHeroDistance() {
-  const isMobile = useIsMobile();
-  return isMobile ? 10 : 20;
-}
 
 function Home() {
   return (
