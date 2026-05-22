@@ -72,7 +72,7 @@ function Hero() {
         <div className="pointer-events-none absolute -top-40 -right-32 h-[40rem] w-[40rem] rounded-full bg-primary/15 blur-3xl" />
 
         {/* Top brand row */}
-        <div className="relative z-10 mx-auto flex w-full max-w-[1500px] items-center justify-between px-6 pt-8 text-[10px] uppercase tracking-[0.28em] text-cream/60 md:px-12 md:pt-10 lg:px-16">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1500px] items-center justify-between gap-4 px-5 pt-8 text-[9px] uppercase tracking-[0.24em] text-cream/60 sm:px-6 sm:text-[10px] sm:tracking-[0.28em] md:px-12 md:pt-10 lg:px-16">
           <span>Harare · Zimbabwe</span>
           <span className="hidden sm:inline">Est. 2024 · Health · Wellness · Longevity</span>
           <span>24 / 7</span>
