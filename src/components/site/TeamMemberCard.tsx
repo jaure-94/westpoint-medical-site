@@ -32,7 +32,10 @@ export function TeamMemberCard({
     <figure className="group">
       <div className={`relative w-full overflow-hidden rounded-2xl bg-muted ${className}`}>
         {!loaded && (
-          <div className="pointer-events-none absolute inset-0 animate-pulse bg-gradient-to-br from-muted via-muted/60 to-muted transition-opacity duration-500" />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 z-0 animate-pulse bg-gradient-to-br from-muted via-muted/60 to-muted"
+          />
         )}
         <img
           ref={imgRef}
@@ -43,7 +46,7 @@ export function TeamMemberCard({
           fetchPriority={fetchPriority}
           onLoad={() => setLoaded(true)}
           onError={() => setLoaded(true)}
-          className="h-full w-full object-cover opacity-100 transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+          className="relative z-10 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
         />
       </div>
       {!hideCaption && (
