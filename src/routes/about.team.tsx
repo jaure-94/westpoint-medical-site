@@ -85,14 +85,14 @@ function Team() {
       {/* Founder spotlight */}
       <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16">
         <div className="grid grid-cols-1 items-center gap-8 sm:gap-10 md:grid-cols-12 md:gap-14">
-          <Reveal className="md:col-span-5">
+          <div className="md:col-span-5">
             <div className="relative">
               <div className="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-primary/20 via-primary/5 to-transparent blur-2xl" />
               <div className="overflow-hidden rounded-2xl sm:rounded-3xl ring-1 ring-border/60">
-                <TeamMemberCard member={founder} hideCaption className="aspect-[4/5]" />
+                <TeamMemberCard member={founder} hideCaption className="aspect-[4/5]" loading="eager" fetchPriority="high" />
               </div>
             </div>
-          </Reveal>
+          </div>
           <div className="md:col-span-7">
             <Reveal delay={80} className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-primary">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -122,10 +122,10 @@ function Team() {
 
       <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pb-20 sm:pb-24">
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-3 xl:grid-cols-4">
-          {team.map((m, i) => (
-            <Reveal key={m.name} delay={(i % 4) * 80}>
+          {team.map((m) => (
+            <div key={m.name}>
               <TeamMemberCard member={m} />
-            </Reveal>
+            </div>
           ))}
         </div>
       </section>
