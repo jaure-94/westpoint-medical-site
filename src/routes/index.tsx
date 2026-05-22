@@ -48,10 +48,6 @@ function useMotionDistance() {
   return isMobile ? 15 : 30;
 }
 
-function useHeroDistance() {
-  const isMobile = useIsMobile();
-  return isMobile ? 10 : 20;
-}
 
 function Home() {
   return (
@@ -68,18 +64,16 @@ function Home() {
 }
 
 /* ────────────────────────────────────────────────────────── HERO ── */
+/**
+ * Hero uses CSS keyframe animations (animate-fade-in) instead of Framer Motion
+ * for the load sequence. Framer Motion SSRs `initial="hidden"` as inline
+ * opacity:0, then needs JS hydration to flip to "show". When the page also
+ * preloads a large hero image at fetchPriority:high (see route head()), the
+ * image contends with the JS bundle and hydration can be delayed several
+ * seconds — making the hero look frozen. CSS animations run on first paint
+ * with zero hydration dependency.
+ */
 function Hero() {
-  const y = useHeroDistance();
-
-  const container: Variants = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
-  };
-  const item: Variants = {
-    hidden: { opacity: 0, y },
-    show: { opacity: 1, y: 0, transition: SPRING },
-  };
-
   return (
     <section className="relative w-full">
       <div className="relative w-full overflow-hidden bg-ink text-cream min-h-[100svh] flex flex-col">
@@ -106,42 +100,25 @@ function Hero() {
         </div>
 
         {/* Main copy */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 px-5 sm:px-6 md:px-12 lg:px-16 pt-12 sm:pt-16 md:pt-24 pb-12"
-        >
+        <div className="relative z-10 mx-auto w-full max-w-[1500px] flex-1 px-5 sm:px-6 md:px-12 lg:px-16 pt-12 sm:pt-16 md:pt-24 pb-12">
           <div className="max-w-4xl">
-            <motion.div
-              variants={item}
-              className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 backdrop-blur px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-cream/75"
-            >
+            <div className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 backdrop-blur px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-cream/75 animate-fade-in [animation-delay:0ms] [animation-fill-mode:both]">
               <span className="inline-flex h-1.5 w-1.5 rounded-full bg-primary-glow" />
               Now open · Doors never close
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={item}
-              className="mt-6 sm:mt-8 font-display font-medium text-[2.5rem] leading-[0.98] tracking-tight sm:text-[4.5rem] lg:text-[6.25rem]"
-            >
+            <h1 className="mt-6 sm:mt-8 font-display font-medium text-[2.5rem] leading-[0.98] tracking-tight sm:text-[4.5rem] lg:text-[6.25rem] animate-fade-in [animation-delay:120ms] [animation-fill-mode:both]">
               A new standard
               <br />
               of <span className="text-primary-glow font-display font-bold">care.</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={item}
-              className="mt-6 sm:mt-8 max-w-xl text-base leading-relaxed text-cream/80 md:text-lg"
-            >
+            <p className="mt-6 sm:mt-8 max-w-xl text-base leading-relaxed text-cream/80 md:text-lg animate-fade-in [animation-delay:240ms] [animation-fill-mode:both]">
               Personalised medical and wellness care designed to restore your strength,
               vitality and confidence — under one calm, considered roof, around the clock.
-            </motion.p>
+            </p>
 
-            <motion.div
-              variants={item}
-              className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4"
-            >
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4 animate-fade-in [animation-delay:360ms] [animation-fill-mode:both]">
               <Link
                 to="/contact"
                 className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary-glow px-7 py-3.5 text-sm font-medium text-ink"
@@ -158,9 +135,9 @@ function Hero() {
                 </span>
                 <span className="text-sm font-medium tracking-wide">+263 780 969 577</span>
               </a>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Bottom meta strip */}
         <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-wrap items-center justify-between gap-4 border-t border-cream/10 px-5 sm:px-6 py-6 text-cream/70 md:px-12 lg:px-16">
