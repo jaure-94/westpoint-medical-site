@@ -123,26 +123,26 @@ function Contact() {
       </section>
 
       {/* MAP + FORM */}
-      <section className="mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16 pt-28 md:pt-32 pb-24 grid lg:grid-cols-12 gap-10">
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-5 space-y-6"
+          className="lg:col-span-5 space-y-5 sm:space-y-6"
         >
           <div className="text-xs uppercase tracking-[0.24em] text-primary">Find us</div>
-          <h2 className="font-display text-3xl md:text-4xl leading-tight">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl leading-tight">
             A short drive from anywhere in <span className="italic text-gradient-green">Harare</span>.
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-sm sm:text-base text-muted-foreground">
             Easy parking on-site, wheelchair access, and a calm, welcoming reception waiting for you.
           </p>
-          <div className="relative overflow-hidden rounded-3xl border border-border shadow-soft">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border shadow-soft">
             <iframe
               title="WestPoint Medical location"
               src="https://www.google.com/maps?q=-17.8045736,30.9724211&z=17&hl=en&output=embed"
-              className="aspect-[4/3] w-full"
+              className="aspect-[16/10] sm:aspect-[4/3] w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
@@ -160,22 +160,22 @@ function Contact() {
         >
           <form
             onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-            className="rounded-3xl border border-border bg-card p-8 md:p-10 space-y-6 shadow-soft"
+            className="rounded-2xl sm:rounded-3xl border border-border bg-card p-6 sm:p-8 md:p-10 space-y-5 sm:space-y-6 shadow-soft"
           >
             <div>
               <div className="text-xs uppercase tracking-[0.24em] text-primary">Send a message</div>
-              <h2 className="mt-3 font-display text-3xl md:text-4xl">How can we help?</h2>
+              <h2 className="mt-3 font-display text-2xl sm:text-3xl md:text-4xl">How can we help?</h2>
               <p className="mt-2 text-sm text-muted-foreground">We typically respond within the hour during clinic hours.</p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               <Field label="Full name" name="name" required />
               <Field label="Phone" name="phone" type="tel" required />
             </div>
             <Field label="Email" name="email" type="email" required />
             <div>
               <label className="text-xs uppercase tracking-[0.18em] text-muted-foreground">What do you need help with?</label>
-              <select className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring">
+              <select className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring min-h-[44px]">
                 <option>General consultation</option>
                 <option>Dental appointment</option>
                 <option>Aesthetics & wellness</option>
@@ -190,7 +190,7 @@ function Contact() {
 
             <button
               type="submit"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
             >
               {sent ? "Thanks — we'll be in touch" : "Send message"}
               {!sent && <ArrowRight className="h-4 w-4" />}
