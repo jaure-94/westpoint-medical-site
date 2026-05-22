@@ -399,27 +399,27 @@ function Values() {
 function CtaBlock() {
   return (
     <section className="bg-background">
-      <div className="mx-auto max-w-5xl px-6 py-24 text-center md:py-32">
+      <div className="mx-auto max-w-5xl px-5 py-20 text-center sm:px-6 sm:py-24 md:py-32">
         <div className="inline-flex items-center gap-2 rounded-full border border-border bg-cream px-4 py-1.5 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
           <span className="h-1.5 w-1.5 rounded-full bg-primary-glow" />
           Ready when you are
         </div>
-        <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl leading-[1.02] md:text-6xl">
+        <h2 className="mx-auto mt-6 max-w-3xl font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl">
           Care, the way it should have <span className="italic text-primary">always felt.</span>
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
+        <p className="mx-auto mt-6 max-w-xl text-base sm:text-lg text-muted-foreground">
           Walk in, call, or book online. We&apos;ll take it from there.
         </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
+        <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground shadow-glow hover:bg-primary/90"
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground shadow-glow hover:bg-primary/90"
           >
             Book a visit <ArrowUpRight className="h-4 w-4" />
           </Link>
           <a
             href="tel:+263780969577"
-            className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-medium hover:bg-muted"
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-medium hover:bg-muted"
           >
             Call +263 780 969 577
           </a>
