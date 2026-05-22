@@ -43,28 +43,40 @@ export const Route = createFileRoute("/about/")({
 function About() {
   return (
     <Layout>
-      <section className="mx-auto max-w-7xl px-6 pt-20 pb-12 md:pt-28">
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pt-16 sm:pt-20 md:pt-28 pb-10 sm:pb-12">
         <div className="text-xs uppercase tracking-[0.25em] text-primary">About us</div>
-        <h1 className="mt-4 font-display text-5xl md:text-7xl max-w-4xl leading-[0.98]">
+        <h1 className="mt-4 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl leading-[1.02] sm:leading-[0.98]">
           We made a clinic that <span className="italic text-gradient-green">feels</span> like rest.
         </h1>
-        <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
+        <p className="mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg text-muted-foreground">
           WestPoint Medical is a new, modern facility built around a simple belief: the building you walk into shapes the care you receive. So we designed every room, hallway and finish with the same intention we bring to clinical work.
         </p>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-12">
-        <div className="grid md:grid-cols-12 gap-4">
-          <img src={exterior} alt="WestPoint Medical entrance" className="md:col-span-8 aspect-[16/10] w-full object-cover rounded-3xl" />
-          <img src={wall} alt="Health Wellness Longevity wall" className="md:col-span-4 aspect-[3/4] md:aspect-auto w-full object-cover rounded-3xl" />
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 py-10 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+          <img
+            src={exterior}
+            alt="WestPoint Medical entrance"
+            loading="lazy"
+            decoding="async"
+            className="md:col-span-8 aspect-[16/10] w-full object-cover rounded-2xl sm:rounded-3xl"
+          />
+          <img
+            src={wall}
+            alt="Health Wellness Longevity wall"
+            loading="lazy"
+            decoding="async"
+            className="md:col-span-4 aspect-[16/10] md:aspect-auto w-full object-cover rounded-2xl sm:rounded-3xl"
+          />
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-24 grid md:grid-cols-12 gap-12">
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 py-16 sm:py-20 md:py-24 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
         <div className="md:col-span-5">
-          <h2 className="font-display text-3xl md:text-4xl">Our philosophy</h2>
+          <h2 className="font-display text-3xl sm:text-4xl">Our philosophy</h2>
         </div>
-        <div className="md:col-span-7 space-y-6 text-lg text-foreground/80">
+        <div className="md:col-span-7 space-y-5 sm:space-y-6 text-base sm:text-lg text-foreground/80">
           <p>Healthcare in our region rarely feels designed for the person on the receiving end. We wanted to change that — not with slogans, but with floor plans, lighting, signage, and quiet rooms.</p>
           <p>Health, Wellness, and Longevity guide every decision. From the 24-hour pharmacy at the front, to dental and consultation suites that look more like studios than clinics, to an aesthetics &amp; wellness wing built for the long game.</p>
           <p>We&apos;re a small, considered team. You&apos;ll see the same faces. You&apos;ll be remembered.</p>
@@ -72,13 +84,13 @@ function About() {
       </section>
 
       <section className="border-y border-border bg-cream">
-        <div className="mx-auto max-w-7xl px-6 py-20 grid md:grid-cols-3 gap-10">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 py-16 sm:py-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10">
           {[
             { k: "01", t: "Built, not branded", d: "The space came before the marketing. Walk in and see the difference." },
             { k: "02", t: "Always staffed", d: "Doctors, nurses and pharmacists on-site, 24 hours a day, every day of the year." },
             { k: "03", t: "Joined-up care", d: "Your GP, dentist, aesthetician and pharmacist sharing one roof and one record." },
           ].map((v) => (
-            <div key={v.k}>
+            <div key={v.k} className="sm:last:col-span-2 md:last:col-span-1">
               <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{v.k}</div>
               <div className="mt-3 font-display text-2xl">{v.t}</div>
               <p className="mt-3 text-muted-foreground">{v.d}</p>
@@ -90,23 +102,23 @@ function About() {
       {/* Vision & Mission */}
       <section className="relative overflow-hidden bg-ink text-background">
         <div className="absolute inset-0 bg-grain opacity-[0.12]" aria-hidden />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32 grid md:grid-cols-12 gap-12">
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 py-20 sm:py-24 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
           <div className="md:col-span-4">
             <div className="text-xs uppercase tracking-[0.25em] text-primary-glow">Direction</div>
-            <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.02]">
-              Where we're <span className="italic text-gradient-green">going</span>, and why.
+            <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05]">
+              Where we&apos;re <span className="italic text-gradient-green">going</span>, and why.
             </h2>
           </div>
-          <div className="md:col-span-8 grid sm:grid-cols-2 gap-6">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm">
+          <div className="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-8 backdrop-blur-sm">
               <div className="text-xs uppercase tracking-[0.25em] text-primary-glow">Vision</div>
-              <p className="mt-5 text-lg leading-relaxed text-background/85">
-                To be Zimbabwe's leading network of modern medical centers — rooted in community, driven by innovation, and dedicated to delivering compassionate, world-class healthcare.
+              <p className="mt-5 text-base sm:text-lg leading-relaxed text-background/85">
+                To be Zimbabwe&apos;s leading network of modern medical centers — rooted in community, driven by innovation, and dedicated to delivering compassionate, world-class healthcare.
               </p>
             </div>
-            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-8 backdrop-blur-sm">
               <div className="text-xs uppercase tracking-[0.25em] text-primary-glow">Mission</div>
-              <p className="mt-5 text-base leading-relaxed text-background/85">
+              <p className="mt-5 text-sm sm:text-base leading-relaxed text-background/85">
                 To provide accessible, high-quality healthcare through modern facilities, advanced technology and a team that genuinely cares — promoting wellness, restoring dignity, and creating a welcoming environment where every patient is valued, from our local communities to every corner of Zimbabwe.
               </p>
             </div>
@@ -115,22 +127,22 @@ function About() {
       </section>
 
       {/* Values */}
-      <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-        <div className="grid md:grid-cols-12 gap-12 items-end">
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 py-20 sm:py-24 md:py-32">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 md:items-end">
           <div className="md:col-span-5">
             <div className="text-xs uppercase tracking-[0.25em] text-primary">Our values</div>
-            <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.02]">
+            <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05]">
               Ten quiet promises we keep.
             </h2>
           </div>
-          <p className="md:col-span-6 md:col-start-7 text-muted-foreground text-lg">
+          <p className="md:col-span-6 md:col-start-7 text-muted-foreground text-base sm:text-lg">
             Not posters on a wall — operating principles. They shape how we hire, how we design our rooms, and how we answer the phone at 3am.
           </p>
         </div>
 
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-3xl overflow-hidden ring-1 ring-border">
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-3xl overflow-hidden ring-1 ring-border">
           {values.map(({ n, t, d, Icon }) => (
-            <div key={n} className="bg-card p-8 flex flex-col gap-4 transition-colors hover:bg-accent/30">
+            <div key={n} className="bg-card p-6 sm:p-8 flex flex-col gap-4 transition-colors hover:bg-accent/30">
               <div className="flex items-center justify-between">
                 <div className="h-11 w-11 rounded-full bg-primary/10 text-primary flex items-center justify-center">
                   <Icon className="h-5 w-5" />
@@ -144,13 +156,22 @@ function About() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-24 grid md:grid-cols-2 gap-4">
-        <img src={consult} alt="Consultation room interior" className="aspect-[4/5] w-full object-cover rounded-3xl" />
-        <div className="flex flex-col justify-end p-2 md:p-10">
-          <h2 className="font-display text-4xl md:text-5xl">Come and see for yourself.</h2>
-          <p className="mt-5 text-muted-foreground max-w-md">The fastest way to understand WestPoint is to walk in. We&apos;ll make you a coffee.</p>
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 py-20 sm:py-24 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-4 items-stretch">
+        <img
+          src={consult}
+          alt="Consultation room interior"
+          loading="lazy"
+          decoding="async"
+          className="aspect-[4/5] w-full object-cover rounded-2xl sm:rounded-3xl"
+        />
+        <div className="flex flex-col justify-end p-0 md:p-10">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl">Come and see for yourself.</h2>
+          <p className="mt-5 text-muted-foreground max-w-md text-base sm:text-lg">The fastest way to understand WestPoint is to walk in. We&apos;ll make you a coffee.</p>
           <div className="mt-8">
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-glow">
+            <Link
+              to="/contact"
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-glow"
+            >
               Plan a visit <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
