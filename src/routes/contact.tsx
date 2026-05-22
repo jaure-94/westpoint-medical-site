@@ -26,20 +26,18 @@ function Contact() {
   return (
     <Layout>
       {/* HERO */}
-      <section className="relative w-full min-h-[58svh]">
-        <div className="absolute inset-0 overflow-hidden">
-        <img
-          src={exterior}
-          alt="WestPoint Medical exterior"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+      <section className="relative w-full min-h-[50svh] sm:min-h-[54svh] md:min-h-[58svh]">
+        <div className="absolute inset-1 overflow-hidden rounded-2xl sm:rounded-3xl">
+          <img
+            src={exterior}
+            alt="WestPoint Medical exterior"
+            className="absolute inset-1 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/65 to-ink/40 sm:from-ink/85 sm:via-ink/60 sm:to-ink/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
         </div>
 
-
-
-        <div className="relative mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16 pt-28 md:pt-32 pb-16 md:pb-20 text-cream">
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-18 md:pb-20 text-cream">
           <motion.div
             initial="hidden"
             animate="show"
@@ -53,7 +51,7 @@ function Contact() {
             animate="show"
             custom={1}
             variants={fadeUp}
-            className="mt-5 font-display text-4xl md:text-6xl lg:text-7xl max-w-4xl leading-[0.95]"
+            className="mt-4 sm:mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl leading-[0.95]"
           >
             We&apos;re <span className="italic text-gradient-green">here.</span>
             <br className="hidden md:block" /> Day or night.
@@ -63,7 +61,7 @@ function Contact() {
             animate="show"
             custom={2}
             variants={fadeUp}
-            className="mt-6 max-w-xl text-base md:text-lg text-cream/80"
+            className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg text-cream/80"
           >
             A modern medical home in the heart of Harare — open 24 hours,
             every day. Walk in, call ahead, or send us a note below.
@@ -74,17 +72,17 @@ function Contact() {
             animate="show"
             custom={3}
             variants={fadeUp}
-            className="mt-10 flex flex-wrap gap-3"
+            className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3"
           >
             <a
               href="tel:+263780969577"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary px-6 sm:px-7 py-3 sm:py-3.5 text-sm font-medium text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
             >
               <Phone className="h-4 w-4" /> Call +263 780 969 577
             </a>
             <a
               href="#message"
-              className="inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/5 px-6 py-3 text-sm font-medium text-cream backdrop-blur hover:bg-cream/10"
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-cream/30 bg-cream/5 px-6 sm:px-7 py-3 sm:py-3.5 text-sm font-medium text-cream backdrop-blur hover:bg-cream/10"
             >
               Send a message <ArrowRight className="h-4 w-4" />
             </a>
@@ -96,9 +94,9 @@ function Contact() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-30 mx-auto max-w-[1500px] px-6 md:px-12 lg:px-16 -mb-16 md:-mb-20"
+          className="relative z-30 mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 -mb-16 sm:-mb-18 md:-mb-20"
         >
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-3xl overflow-hidden border border-border bg-border shadow-soft">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl sm:rounded-3xl overflow-hidden border border-border bg-border shadow-soft">
             {[
               { Icon: MapPin, label: "Visit", value: "WestPoint Centre, Harare" },
               { Icon: Phone, label: "Call", value: "+263 780 969 577", href: "tel:+263780969577" },
@@ -106,12 +104,12 @@ function Contact() {
               { Icon: Clock, label: "Hours", value: "Open 24 / 7" },
             ].map(({ Icon, label, value, href }) => {
               const content = (
-                <div className="group h-full bg-card p-6 transition-colors hover:bg-accent/40">
+                <div className="group h-full bg-card p-5 sm:p-6 transition-colors hover:bg-accent/40">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Icon className="h-4 w-4" />
                   </span>
                   <div className="mt-4 text-[10px] uppercase tracking-[0.24em] text-muted-foreground">{label}</div>
-                  <div className="mt-1 font-display text-base md:text-lg leading-snug">{value}</div>
+                  <div className="mt-1 font-display text-sm sm:text-base md:text-lg leading-snug">{value}</div>
                 </div>
               );
               return href ? (
