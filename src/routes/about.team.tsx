@@ -57,23 +57,23 @@ function Team() {
   return (
     <Layout>
       {/* HERO */}
-      <section className="relative w-full min-h-[58svh]">
+      <section className="relative w-full min-h-[60svh] sm:min-h-[58svh]">
         <div className="absolute inset-0 overflow-hidden">
           <img
             src={teamGroup}
             alt="The WestPoint Medical team"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/40 sm:from-ink/85 sm:via-ink/60 sm:to-ink/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent sm:from-ink/70 sm:via-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 pt-28 md:pt-32 pb-20 md:pb-28 text-cream">
-          <div className="text-xs uppercase tracking-[0.28em] text-primary-glow">Our people</div>
-          <h1 className="mt-5 font-display text-5xl md:text-7xl max-w-4xl leading-[0.95]">
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-28 text-cream">
+          <div className="text-[10px] sm:text-xs uppercase tracking-[0.28em] text-primary-glow">Our people</div>
+          <h1 className="mt-4 sm:mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl leading-[0.95]">
             Meet our <span className="italic text-gradient-green">team</span>.
           </h1>
-          <p className="mt-6 max-w-2xl text-base md:text-lg text-cream/80">
+          <p className="mt-5 sm:mt-6 max-w-2xl text-sm sm:text-base md:text-lg text-cream/80">
             The clinicians, dentists, nurses and care professionals who make WestPoint feel like home.
           </p>
         </div>
@@ -81,12 +81,12 @@ function Team() {
 
 
       {/* Founder spotlight */}
-      <section className="mx-auto max-w-7xl px-6 pt-20 md:pt-24 pb-16">
-        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-14">
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16">
+        <div className="grid grid-cols-1 items-center gap-8 sm:gap-10 md:grid-cols-12 md:gap-14">
           <div className="md:col-span-5">
             <div className="relative">
               <div className="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-primary/20 via-primary/5 to-transparent blur-2xl" />
-              <div className="overflow-hidden rounded-3xl ring-1 ring-border/60">
+              <div className="overflow-hidden rounded-2xl sm:rounded-3xl ring-1 ring-border/60">
                 <TeamMemberCard member={founder} hideCaption className="aspect-[4/5]" />
               </div>
             </div>
@@ -96,13 +96,13 @@ function Team() {
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               Leadership
             </div>
-            <h2 className="mt-5 font-display text-4xl md:text-6xl leading-[1.02]">
+            <h2 className="mt-4 sm:mt-5 font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
               {founder.name}
             </h2>
-            <div className="mt-3 text-base md:text-lg text-muted-foreground">
+            <div className="mt-3 text-sm sm:text-base md:text-lg text-muted-foreground">
               {founder.title}
             </div>
-            <p className="mt-6 max-w-xl text-muted-foreground">
+            <p className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base text-muted-foreground">
               Setting the tone for a modern standard of care — where clinical excellence,
               warmth and quiet confidence meet under one roof.
             </p>
@@ -110,16 +110,16 @@ function Team() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-8">
-        <div className="flex items-center gap-4">
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pb-6 sm:pb-8">
+        <div className="flex items-center gap-3 sm:gap-4">
           <div className="h-px flex-1 bg-border/70" />
-          <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">The team</div>
+          <div className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground">The team</div>
           <div className="h-px flex-1 bg-border/70" />
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pb-20 sm:pb-24">
+        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-3 xl:grid-cols-4">
           {team.map((m) => (
             <TeamMemberCard key={m.name} member={m} />
           ))}
