@@ -183,13 +183,13 @@ function Pillars() {
   ];
   return (
     <section className="bg-cream">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-3 md:py-32">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:gap-12 sm:px-6 sm:py-24 md:grid-cols-3 md:px-8 md:py-32 lg:px-16">
         {pillars.map((p, i) => (
           <div key={p.word} className="group">
             <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
               0{i + 1}
             </div>
-            <div className="mt-3 font-display text-4xl md:text-6xl">
+            <div className="mt-3 font-display text-4xl sm:text-5xl md:text-6xl">
               {p.word}
               <span className="text-primary">.</span>
             </div>
