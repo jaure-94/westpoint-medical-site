@@ -77,38 +77,38 @@ const groups = [
 function Services() {
   return (
     <Layout>
-      <section className="mx-auto max-w-7xl px-6 pt-20 md:pt-28 pb-16">
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pt-16 sm:pt-20 md:pt-28 pb-12 sm:pb-16">
         <div className="text-xs uppercase tracking-[0.25em] text-primary">What we do</div>
-        <h1 className="mt-4 font-display text-5xl md:text-7xl max-w-4xl leading-[0.98]">
+        <h1 className="mt-4 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl leading-[0.98]">
           Joined-up care for <span className="italic text-gradient-green">every chapter.</span>
         </h1>
-        <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
+        <p className="mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg text-muted-foreground">
           From a 3am pharmacy run to a planned dental restoration, the same team and the same record. Less repeating yourself, more being looked after.
         </p>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-20 space-y-6">
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 pb-16 sm:pb-20 space-y-5 sm:space-y-6">
         {groups.map((g, i) => {
           const Icon = g.icon;
           const reverse = i % 2 === 1;
           return (
-            <article key={g.title} className="grid md:grid-cols-12 gap-6 rounded-3xl border border-border bg-card p-6 md:p-10 hover:shadow-soft transition-shadow">
+            <article key={g.title} className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 rounded-2xl sm:rounded-3xl border border-border bg-card p-5 sm:p-6 md:p-8 lg:p-10 hover:shadow-soft transition-shadow">
               <div className={`md:col-span-5 ${reverse ? "md:order-2" : ""}`}>
-                <div className="aspect-[4/3] overflow-hidden rounded-2xl">
-                  <img src={g.img} alt={g.title} className="h-full w-full object-cover" />
+                <div className="aspect-[4/3] w-full overflow-hidden rounded-xl sm:rounded-2xl">
+                  <img src={g.img} alt={g.title} className="h-full w-full object-cover" loading="lazy" decoding="async" />
                 </div>
               </div>
               <div className="md:col-span-7 flex flex-col justify-center">
                 {g.logo ? (
-                  <div className="flex items-center gap-4">
-                    <div className="inline-flex items-center justify-center rounded-xl bg-white ring-1 ring-border px-4 py-3 shadow-sm">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="inline-flex items-center justify-center rounded-xl bg-white ring-1 ring-border px-3 py-2.5 sm:px-4 sm:py-3 shadow-sm">
                       <img
                         src={g.logo}
                         alt={`${g.title} logo`}
-                      className="h-14 md:h-16 w-auto object-contain"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                        className="h-12 sm:h-14 md:h-16 w-auto object-contain"
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                     <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">0{i + 1} — Service</span>
                   </div>
@@ -120,12 +120,12 @@ function Services() {
                     <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">0{i + 1} — Service</span>
                   </div>
                 )}
-                <h2 className="mt-4 font-display text-3xl md:text-4xl">{g.title}</h2>
-                <p className="mt-4 text-muted-foreground max-w-xl">{g.blurb}</p>
-                <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-2 max-w-md">
+                <h2 className="mt-4 font-display text-2xl sm:text-3xl md:text-4xl">{g.title}</h2>
+                <p className="mt-3 sm:mt-4 text-muted-foreground max-w-xl">{g.blurb}</p>
+                <ul className="mt-5 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 max-w-md">
                   {g.items.map((it) => (
                     <li key={it} className="flex items-center gap-2 text-sm">
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary" /> {it}
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" /> {it}
                     </li>
                   ))}
                 </ul>
@@ -135,11 +135,10 @@ function Services() {
         })}
       </section>
 
-
-      <section className="mx-auto max-w-7xl px-6 py-24 text-center">
-        <h2 className="font-display text-4xl md:text-5xl max-w-2xl mx-auto">Not sure what you need?</h2>
-        <p className="mt-5 text-muted-foreground max-w-lg mx-auto">Tell us a little and we&apos;ll point you at the right room and the right person.</p>
-        <Link to="/contact" className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground shadow-glow">
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 lg:px-16 py-20 sm:py-24 md:py-32 text-center">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl max-w-2xl mx-auto">Not sure what you need?</h2>
+        <p className="mt-4 sm:mt-5 text-muted-foreground max-w-lg mx-auto">Tell us a little and we&apos;ll point you at the right room and the right person.</p>
+        <Link to="/contact" className="mt-8 sm:mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-7 sm:px-8 py-3.5 sm:py-4 text-sm font-medium text-primary-foreground shadow-glow min-h-[44px]">
           Talk to us <ArrowUpRight className="h-4 w-4" />
         </Link>
       </section>
