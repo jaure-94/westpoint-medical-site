@@ -18,6 +18,7 @@ import seraphim from "@/assets/team/seraphim-gumbura.jpeg";
 import tariro from "@/assets/team/tariro-chauya.jpeg";
 import telitah from "@/assets/team/telitah-chimutanda.jpeg";
 import thembi from "@/assets/team/thembi-nkala.jpeg";
+import vanessa from "@/assets/team/vanessa-shumba.jpg.jpeg";
 
 export const Route = createFileRoute("/about/team")({
   head: () => ({
@@ -40,16 +41,17 @@ const founder: TeamMember = {
 const team: readonly TeamMember[] = [
   { name: "Telitah Eunice Chimutanda", title: "Supervising Pharmacist", image: telitah },
   { name: "Seraphim Gumbura", title: "Pharmacist", image: seraphim },
-  { name: "Isabella Chaniwa", title: "Supervising Beauty Therapist", image: isabella },
-  { name: "Tariro Prudence Chauya", title: "Beauty Therapist", image: tariro },
   { name: "Chido Mufandaedza", title: "Radiographer", image: chido },
   { name: "Thembi Nkala", title: "Nurse", image: thembi },
-  { name: "Margie Mirriam Musekiwa", title: "Nurse Assistant", image: margie },
-  { name: "Mitchelle Jeke", title: "Nurse Assistant", image: mitchelle },
-  { name: "Essabelle Rushwaya", title: "Dental Assistant", image: essabelle },
-  { name: "Portia Chimuka", title: "Dispensary Assistant", image: portia },
   { name: "Priscilla Matibiri", title: "Medical Administrative Assistant", image: priscilla },
-  { name: "Chelsy Paidamoyo Chada", title: "Medical Administrative Assistant / Receptionist", image: chelsy },
+  { name: "Portia Chimuka", title: "Dispensary Assistant", image: portia },
+  { name: "Mitchelle Jeke", title: "Nurse Assistant", image: mitchelle },
+  { name: "Isabella Chaniwa", title: "Supervising Beauty Therapist", image: isabella },
+  { name: "Tariro Prudence Chauya", title: "Beauty Therapist", image: tariro },
+  { name: "Vanessa Shumba", title: "Beauty Therapist", image: vanessa },
+  { name: "Margie Mirriam Musekiwa", title: "Nurse Assistant", image: margie },
+  { name: "Essabelle Rushwaya", title: "Dental Assistant", image: essabelle },
+  { name: "Chelsy Paidamoyo Chada", title: "Medical Administrative Assistant", image: chelsy },
   { name: "Resilience Mkwangwanyah", title: "Media Manager & Graphics Designer", image: resilience },
   { name: "Nigel Ndlovu", title: "Administrator", image: nigel },
 ];
