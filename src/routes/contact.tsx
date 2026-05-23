@@ -98,9 +98,9 @@ function Contact() {
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl sm:rounded-3xl overflow-hidden border border-border bg-border shadow-soft">
             {[
-              { Icon: MapPin, label: "Visit", value: "WestPoint Centre, Harare" },
+              { Icon: MapPin, label: "Visit", value: "WestPoint Medical, Harare" },
               { Icon: Phone, label: "Call", value: "+263 780 969 577", href: "tel:+263780969577" },
-              { Icon: Mail, label: "Email", value: "care@westpointmedical.co", href: "mailto:care@westpointmedical.co" },
+              { Icon: Mail, label: "Email", value: "care@westpointmedical.co.zw", href: "mailto:care@westpointmedical.co" },
               { Icon: Clock, label: "Hours", value: "Open 24 / 7" },
             ].map(({ Icon, label, value, href }) => {
               const content = (
@@ -180,6 +180,7 @@ function Contact() {
                 <option>Dental appointment</option>
                 <option>Aesthetics & wellness</option>
                 <option>Pharmacy enquiry</option>
+                <option>Radiology enquiry</option>
                 <option>Something else</option>
               </select>
             </div>

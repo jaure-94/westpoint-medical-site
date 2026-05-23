@@ -5,7 +5,7 @@ import dental from "@/assets/clinic/dental-1.jpg";
 import consult from "@/assets/clinic/consultation.jpg";
 import aesthetics from "@/assets/clinic/aesthetics.jpg";
 import resus from "@/assets/clinic/resuscitation.jpg";
-import pharmacyImg from "@/assets/clinic/pharmacy.jpg";
+import pharmacyImg from "@/assets/clinic/pharmacy-interior.jpeg";
 import radiologyImg from "@/assets/clinic/radiology.jpg";
 import dentalLogo from "@/assets/clinic/logos/dental.png";
 import wellnessLogo from "@/assets/clinic/logos/wellness.png";
@@ -45,7 +45,7 @@ const groups = [
     icon: Sparkles,
     logo: wellnessLogo,
     blurb: "A dedicated wing for skin, body and longevity treatments delivered by trained medical staff.",
-    items: ["Skin consultations", "Injectables", "IV wellness drips", "Body contouring", "Longevity programs"],
+    items: ["Skin consultations", "Laser weight loss", "Laser treatments", "IV bar", "Massages", "Facial treatments", "Manicures and pedicures"],
   },
   {
     title: "Emergency & Resuscitation",
@@ -69,7 +69,7 @@ const groups = [
     icon: Scan,
     logo: radiologyLogo,
     blurb: "State-of-the-art diagnostic imaging including X-ray, ultrasound and CT with rapid turnaround and specialist reporting.",
-    items: ["X-ray imaging", "Ultrasound", "CT scanning", "Rapid reporting", "Specialist referrals"],
+    items: ["X-ray imaging", "Ultrasound", "Rapid reporting", "Specialist referrals"],
   },
 ];
 

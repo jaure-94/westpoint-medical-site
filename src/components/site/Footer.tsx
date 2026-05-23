@@ -55,7 +55,7 @@ export function Footer() {
             <ul className="mt-6 space-y-3 text-sm">
               <li>
                 <a href="mailto:care@westpointmedical.co" className="text-cream/80 hover:text-primary-glow transition-colors">
-                  care@westpointmedical.co
+                  care@westpointmedical.co.zw
                 </a>
               </li>
               <li>
@@ -63,7 +63,7 @@ export function Footer() {
                   +263 780 969 577
                 </a>
               </li>
-              <li className="text-cream/50">WestPoint Centre</li>
+              <li className="text-cream/50">WestPoint Medical</li>
               <li className="text-cream/50">Harare, Zimbabwe</li>
             </ul>
           </div>

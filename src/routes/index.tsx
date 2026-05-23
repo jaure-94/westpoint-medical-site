@@ -16,8 +16,8 @@ import {
 } from "lucide-react";
 
 import exteriorDay from "@/assets/clinic/exterior-day.jpg";
-import exteriorWide from "@/assets/clinic/exterior-wide.jpg";
-import wall from "@/assets/clinic/health-wellness-wall.jpg";
+import exteriorWide from "@/assets/clinic/WestPoint-4.jpg.jpeg";
+import pharmacy from "@/assets/clinic/pharmacy.jpeg";
 import consultation from "@/assets/clinic/consultation.jpg";
 import dental from "@/assets/clinic/dental-2.jpg";
 import dental1 from "@/assets/clinic/dental-1.jpg";
@@ -143,14 +143,11 @@ function Hero() {
 /* ────────────────────────────────────────────────────── MARQUEE ── */
 function Marquee() {
   const items = [
-    "General Practice",
-    "Dental Care",
-    "Aesthetics",
-    "24h Pharmacy",
-    "Wellness",
-    "Emergency",
-    "Longevity",
-    "Consultations",
+    "Accident and Emergency",
+    "Consultation",
+    "Dental Surgery",
+    "Radiology",
+    "Aesthetics and Wellness"
   ];
   return (
     <div className="overflow-hidden border-y border-border bg-background py-6">
@@ -197,8 +194,8 @@ function Services() {
   const items = [
     { icon: Stethoscope, title: "General Practice", img: consultation, tag: "Walk-in & booked", blurb: "Same-day consultations, chronic care, screenings and referrals from a team that remembers you." },
     { icon: Heart, title: "Dental Care", img: dental, tag: "Modern surgery", blurb: "Routine and advanced dentistry in a calm, modern suite — gentle hands, sharp tools." },
-    { icon: Sparkles, title: "Aesthetics & Wellness", img: aesthetics, tag: "Looking & feeling", blurb: "Skin, body and longevity treatments delivered by trained medical staff, never technicians." },
-    { icon: Pill, title: "24h Pharmacy", img: wall, tag: "Always stocked", blurb: "Prescriptions, OTC and dispensing support — open every hour of the day and night." },
+    { icon: Sparkles, title: "Aesthetics & Wellness", img: aesthetics, tag: "Looking & feeling", blurb: "Skin, body and longevity treatments delivered by trained beauty therapists and medical staff." },
+    { icon: Pill, title: "24h Pharmacy", img: pharmacy, tag: "Always stocked", blurb: "Prescriptions, OTC and dispensing support — open every hour of the day and night." },
   ];
   return (
     <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32 lg:px-16">
@@ -293,7 +290,7 @@ function Values() {
     { icon: Clock, title: "Always open", body: "Round-the-clock medical staff and on-site pharmacy. We are here when you need us — including at 3am." },
     { icon: ShieldCheck, title: "Modern standards", body: "Equipment, sterilisation and protocols held to international standards across every room." },
     { icon: Heart, title: "Human first", body: "We invested in the building so we could invest more attention in you. Every detail is intentional." },
-    { icon: Calendar, title: "Same-day care", body: "Walk in, call, or book online — most days we'll see you within the hour." },
+    { icon: Calendar, title: "Same-day care", body: "Walk in, call, or book online." },
   ];
   return (
     <section className="relative bg-ink text-cream overflow-hidden">
