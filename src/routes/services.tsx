@@ -5,7 +5,7 @@ import dental from "@/assets/clinic/dental-1.jpg";
 import consult from "@/assets/clinic/consultation.jpg";
 import aesthetics from "@/assets/clinic/aesthetics.jpg";
 import resus from "@/assets/clinic/resuscitation.jpg";
-import pharmacyImg from "@/assets/clinic/pharmacy-interior.jpeg";
+import pharmacyImg from "@/assets/clinic/pharmacy-interior.jpg";
 import radiologyImg from "@/assets/clinic/radiology.jpg";
 import dentalLogo from "@/assets/clinic/logos/dental.png";
 import wellnessLogo from "@/assets/clinic/logos/wellness.png";
