@@ -19,7 +19,7 @@ import tariro from "@/assets/team/tariro-chauya.jpeg";
 import telitah from "@/assets/team/telitah-chimutanda.jpeg";
 import thembi from "@/assets/team/thembi-nkala.jpeg";
 import vanessa from "@/assets/team/vanessa-shumba.jpg.jpeg";
-import lisa from "@/assets/team/dr-lisa-vinu.jpg.jpeg";
+import lisa from "@/assets/team/dr-lisa-vinu.jpg.jpg";
 
 export const Route = createFileRoute("/about/team")({
   head: () => ({
