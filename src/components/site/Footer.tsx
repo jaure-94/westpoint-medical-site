@@ -64,6 +64,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="text-cream/50">WestPoint Medical</li>
+              <li className="text-cream/50">Kirkman Road</li>
               <li className="text-cream/50">Harare, Zimbabwe</li>
             </ul>
           </div>
