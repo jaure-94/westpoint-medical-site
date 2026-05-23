@@ -19,6 +19,7 @@ import tariro from "@/assets/team/tariro-chauya.jpeg";
 import telitah from "@/assets/team/telitah-chimutanda.jpeg";
 import thembi from "@/assets/team/thembi-nkala.jpeg";
 import vanessa from "@/assets/team/vanessa-shumba.jpg.jpeg";
+import lisa from "@/assets/team/dr-lisa-vinu.jpg.jpeg";
 
 export const Route = createFileRoute("/about/team")({
   head: () => ({
@@ -39,6 +40,7 @@ const founder: TeamMember = {
 };
 
 const team: readonly TeamMember[] = [
+  { name: "Dr. Lisa Vinu", title: "Dentist", image: lisa },
   { name: "Telitah Eunice Chimutanda", title: "Supervising Pharmacist", image: telitah },
   { name: "Seraphim Gumbura", title: "Pharmacist", image: seraphim },
   { name: "Chido Mufandaedza", title: "Radiographer", image: chido },
