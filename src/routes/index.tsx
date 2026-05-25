@@ -147,6 +147,7 @@ function Marquee() {
     "Consultation",
     "Dental Surgery",
     "Radiology",
+    "Pharmacy",
     "Aesthetics and Wellness"
   ];
   return (

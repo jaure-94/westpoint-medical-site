@@ -25,6 +25,14 @@ export const Route = createFileRoute("/services")({
 
 const groups = [
   {
+    title: "Emergency & Resuscitation",
+    img: resus,
+    icon: Activity,
+    logo: emergencyLogo,
+    blurb: "A fully equipped resuscitation room with 24-hour medical staff on-site for urgent care.",
+    items: ["24/7 emergency cover", "Resuscitation room", "Stabilisation & transfer", "Trauma care", "On-site doctor"],
+  },
+  {
     title: "General Practice",
     img: consult,
     icon: Stethoscope,
@@ -40,20 +48,12 @@ const groups = [
     items: ["Cleanings & hygiene", "Fillings & restorations", "Root canal therapy", "Crowns & bridges", "Cosmetic dentistry"],
   },
   {
-    title: "Aesthetics & Wellness",
-    img: aesthetics,
-    icon: Sparkles,
-    logo: wellnessLogo,
-    blurb: "A dedicated wing for skin, body and longevity treatments delivered by trained medical staff.",
-    items: ["Skin consultations", "Laser weight loss", "Laser treatments", "IV bar", "Massages", "Facial treatments", "Manicures and pedicures"],
-  },
-  {
-    title: "Emergency & Resuscitation",
-    img: resus,
-    icon: Activity,
-    logo: emergencyLogo,
-    blurb: "A fully equipped resuscitation room with 24-hour medical staff on-site for urgent care.",
-    items: ["24/7 emergency cover", "Resuscitation room", "Stabilisation & transfer", "Trauma care", "On-site doctor"],
+    title: "Radiology",
+    img: radiologyImg,
+    icon: Scan,
+    logo: radiologyLogo,
+    blurb: "State-of-the-art diagnostic imaging including X-ray, ultrasound and CT with rapid turnaround and specialist reporting.",
+    items: ["X-ray imaging", "Ultrasound", "Rapid reporting", "Specialist referrals"],
   },
   {
     title: "Pharmacies",
@@ -64,12 +64,12 @@ const groups = [
     items: ["24/7 dispensing", "OTC medications", "Prescription support", "Medication counselling", "Health supplements"],
   },
   {
-    title: "Radiology",
-    img: radiologyImg,
-    icon: Scan,
-    logo: radiologyLogo,
-    blurb: "State-of-the-art diagnostic imaging including X-ray, ultrasound and CT with rapid turnaround and specialist reporting.",
-    items: ["X-ray imaging", "Ultrasound", "Rapid reporting", "Specialist referrals"],
+    title: "Aesthetics & Wellness",
+    img: aesthetics,
+    icon: Sparkles,
+    logo: wellnessLogo,
+    blurb: "A dedicated wing for skin, body and longevity treatments delivered by trained medical staff.",
+    items: ["Skin consultations", "Laser weight loss", "Laser treatments", "IV bar", "Massages", "Facial treatments", "Manicures and pedicures"],
   },
 ];
 

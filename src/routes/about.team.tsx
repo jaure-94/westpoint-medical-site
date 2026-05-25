@@ -48,6 +48,7 @@ const team: readonly TeamMember[] = [
   { name: "Thembi Nkala", title: "Nurse", image: thembi },
   { name: "Priscilla Matibiri", title: "Medical Administrative Assistant", image: priscilla },
   { name: "Amanda Charewa", title: "Medical Administrative Assistant", image: amanda },
+  { name: "Tariro Shubeti", title: "Medical Administrative Assistant" },
   { name: "Portia Chimuka", title: "Dispensary Assistant", image: portia },
   { name: "Mitchelle Jeke", title: "Nurse Assistant", image: mitchelle },
   { name: "Isabella Chaniwa", title: "Supervising Beauty Therapist", image: isabella },
