@@ -3,7 +3,7 @@ import { motion, type Variants } from "motion/react";
 import { Layout } from "@/components/site/Layout";
 import { useIsMobile } from "@/hooks/use-mobile";
 import wall from "@/assets/clinic/health-wellness-wall.jpg";
-import exterior from "@/assets/clinic/exterior-wide.jpg";
+import exterior from "@/assets/clinic/exterior-day-2.jpeg";
 import consult from "@/assets/clinic/consultation.jpg";
 import {
   ArrowUpRight,
