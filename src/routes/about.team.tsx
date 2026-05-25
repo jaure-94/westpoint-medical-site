@@ -41,7 +41,7 @@ const founder: TeamMember = {
 };
 
 const team: readonly TeamMember[] = [
-  { name: "Dr. Lisa Vinu", title: "Dentist", image: lisa },
+  { name: "Dr. Lisa Vinyu", title: "Dentist", image: lisa },
   { name: "Telitah Eunice Chimutanda", title: "Supervising Pharmacist", image: telitah },
   { name: "Seraphim Gumbura", title: "Pharmacist", image: seraphim },
   { name: "Chido Mufandaedza", title: "Radiographer", image: chido },
