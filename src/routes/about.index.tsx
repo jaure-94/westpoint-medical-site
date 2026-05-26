@@ -77,7 +77,7 @@ function About() {
       >
         <motion.div variants={heroItem} className="text-xs uppercase tracking-[0.25em] text-primary">About us</motion.div>
         <motion.h1 variants={heroItem} className="mt-4 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl leading-[1.02] sm:leading-[0.98]">
-          We made a clinic that <span className="italic text-gradient-green">feels</span> like rest.
+          We made a medical center that <span className="italic text-gradient-green">feels</span> like rest.
         </motion.h1>
         <motion.p variants={heroItem} className="mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg text-muted-foreground">
           WestPoint Medical is a new, modern facility built around a simple belief: the building you walk into shapes the care you receive. So we designed every room, hallway and finish with the same intention we bring to clinical work.

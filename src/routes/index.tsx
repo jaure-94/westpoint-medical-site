@@ -4,7 +4,10 @@ import { ServiceCard } from "@/components/site/ServiceCard";
 import { Reveal } from "@/components/site/Reveal";
 import {
   ArrowUpRight,
+  Facebook,
   Heart,
+  Instagram,
+  MessageCircle,
   Stethoscope,
   Sparkles,
   Pill,
@@ -30,7 +33,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A 24-hour modern medical and wellness clinic. General practice, dental, aesthetics & pharmacy under one calm, considered roof.",
+          "A 24-hour modern medical center. General practice, dental, aesthetics & pharmacy under one calm, considered roof.",
       },
     ],
     links: [{ rel: "preload", as: "image", href: exteriorDay, fetchPriority: "high" }],
@@ -60,7 +63,7 @@ function Hero() {
         <div className="absolute inset-0 -z-0">
           <img
             src={exteriorDay}
-            alt="WestPoint Medical clinic exterior"
+            alt="WestPoint Medical center exterior"
             fetchPriority="high"
             decoding="async"
             className="h-full w-full object-cover"
@@ -74,7 +77,35 @@ function Hero() {
 
         <div className="relative z-10 mx-auto flex w-full max-w-[1500px] items-center justify-between gap-4 px-5 pt-8 text-[9px] uppercase tracking-[0.24em] text-cream/60 sm:px-6 sm:text-[10px] sm:tracking-[0.28em] md:px-12 md:pt-10 lg:px-16">
           <span>Harare · Zimbabwe</span>
-          <span className="hidden sm:inline">Est. 2024 · Health · Wellness · Longevity</span>
+          <div className="hidden sm:flex items-center gap-3">
+            <a
+              href="https://www.facebook.com/share/1JdQj7g2Sg/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-cream/60 transition hover:text-cream"
+            >
+              <Facebook className="h-4 w-4" />
+              <span className="sr-only">Facebook</span>
+            </a>
+            <a
+              href="https://www.instagram.com/westpointmedicalzw?igsh=bnloMWhkbjd6OGJs"
+              target="_blank"
+              rel="noreferrer"
+              className="text-cream/60 transition hover:text-cream"
+            >
+              <Instagram className="h-4 w-4" />
+              <span className="sr-only">Instagram</span>
+            </a>
+            <a
+              href="https://wa.me/263780969577"
+              target="_blank"
+              rel="noreferrer"
+              className="text-cream/60 transition hover:text-cream"
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span className="sr-only">WhatsApp</span>
+            </a>
+          </div>
           <span>24 / 7</span>
         </div>
 
@@ -126,7 +157,7 @@ function Hero() {
             {[
               { k: "24/7", v: "Emergency" },
               { k: "4+", v: "Specialties" },
-              { k: "1k+", v: "Patients" },
+              // { k: "1k+", v: "Patients" },
             ].map((s) => (
               <div key={s.v}>
                 <dt className="font-display text-xl sm:text-2xl md:text-3xl text-cream">{s.k}</dt>

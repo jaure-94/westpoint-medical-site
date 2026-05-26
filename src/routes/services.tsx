@@ -44,7 +44,7 @@ const groups = [
     img: dental,
     icon: Heart,
     logo: dentalLogo,
-    blurb: "Modern dental suites for routine and advanced care, in a calm room that doesn't feel like a clinic.",
+    blurb: "Modern dental suites for routine and advanced care, in a calm room that doesn't feel like a medical center.",
     items: ["Cleanings & hygiene", "Fillings & restorations", "Root canal therapy", "Crowns & bridges", "Cosmetic dentistry"],
   },
   {
