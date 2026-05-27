@@ -21,6 +21,7 @@ import thembi from "@/assets/team/thembi-nkala.jpeg";
 import vanessa from "@/assets/team/vanessa-shumba.jpg.jpeg";
 import lisa from "@/assets/team/dr-lisa-vinu.jpg.jpg";
 import amanda from "@/assets/team/amanda-charewa.jpeg";
+import tariroS from "@/assets/team/tariro-shubeti.jpeg";
 
 export const Route = createFileRoute("/about/team")({
   head: () => ({
@@ -48,7 +49,7 @@ const team: readonly TeamMember[] = [
   { name: "Thembi Nkala", title: "Nurse", image: thembi },
   { name: "Priscilla Matibiri", title: "Medical Administrative Assistant", image: priscilla },
   { name: "Amanda Charewa", title: "Medical Administrative Assistant", image: amanda },
-  { name: "Tariro Shubeti", title: "Medical Administrative Assistant" },
+  { name: "Tariro Shubeti", title: "Medical Administrative Assistant", image: tariroS },
   { name: "Portia Chimuka", title: "Dispensary Assistant", image: portia },
   { name: "Mitchelle Jeke", title: "Nurse Assistant", image: mitchelle },
   { name: "Isabella Chaniwa", title: "Supervising Beauty Therapist", image: isabella },
@@ -58,7 +59,7 @@ const team: readonly TeamMember[] = [
   { name: "Essabelle Rushwaya", title: "Dental Assistant", image: essabelle },
   { name: "Chelsy Paidamoyo Chada", title: "Medical Administrative Assistant", image: chelsy },
   { name: "Resilience Mkwangwanyah", title: "Media Manager & Graphics Designer", image: resilience },
-  { name: "Nigel Ndlovu", title: "Administrator", image: nigel },
+  { name: "Nigel Ndlovu", title: "Administrator", image: nigel }
 ];
 
 function Team() {
